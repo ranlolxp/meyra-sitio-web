@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2b1a10" />
+
+  <title>MEYRA · Café y Restaurante en La Paz, BCS</title>
+  <meta name="description" content="MEYRA · Café y Restaurante en La Paz, Baja California Sur. Café de origen, ingredientes reales, recetas caseras y opciones libres de gluten. Lun a Sáb, 7:30 AM – 2:30 PM." />
+  <meta name="keywords" content="café La Paz BCS, cafetería La Paz, restaurante La Paz, desayunos La Paz, café de origen, comida saludable La Paz, MEYRA" />
+  <meta name="author" content="MEYRA" />
+  <link rel="canonical" href="https://meyra.mx/" />
+
+  <!-- Open Graph / Facebook / WhatsApp preview -->
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="MEYRA · Café y Restaurante en La Paz" />
+  <meta property="og:description" content="Café de origen, ingredientes reales y recetas caseras en el corazón de La Paz, BCS." />
+  <meta property="og:image" content="https://meyra.mx/assets/img/fachada-exterior.jpg" />
+  <meta property="og:url" content="https://meyra.mx/" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MEYRA · Café y Restaurante" />
+  <meta name="twitter:description" content="Café de origen, ingredientes reales y recetas caseras en La Paz, BCS." />
+  <meta name="twitter:image" content="https://meyra.mx/assets/img/fachada-exterior.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/logos/logo-meyra-texto-corazon.png" />
+  <link rel="apple-touch-icon" href="assets/logos/logo-meyra-texto-corazon.png" />
+
+  <!-- Preconnect a Google Fonts (acelera carga) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Work+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Schema.org structured data — para que Google entienda que es un restaurante -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "MEYRA Café y Restaurante",
+    "image": "https://meyra.mx/assets/img/fachada-exterior.jpg",
+    "url": "https://meyra.mx/",
+    "telephone": "+526128684404",
+    "priceRange": "$$",
+    "servesCuisine": ["Café de especialidad", "Desayunos", "Comida casera saludable"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Paz",
+      "addressRegion": "Baja California Sur",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 24.1475197,
+      "longitude": -110.3343323
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "07:30",
+      "closes": "14:30"
+    }],
+    "sameAs": ["https://www.instagram.com/meyra.cafe.restaurante.lpz/", "https://www.facebook.com/meyracafeyrestaurantelpz"]
+  }
+  </script>
+</head>
+
+<body>
+
+  <div id="top" aria-hidden="true" style="height:0;overflow:hidden;"></div>
+
+  <!-- ═══════════ MODAL DE BIENVENIDA / IDIOMA ═══════════ -->
+  <div class="lang-modal" id="langModal" role="dialog" aria-modal="true" aria-labelledby="langModalTitle" hidden>
+    <div class="lang-modal__card">
+      <img src="assets/logos/logo-meyra.png" alt="MEYRA" class="lang-modal__logo" />
+      <p class="lang-modal__eyebrow">Welcome · Bienvenido</p>
+      <h2 id="langModalTitle" class="lang-modal__title">
+        Choose your language
+        <span class="lang-modal__sub">Elige tu idioma</span>
+      </h2>
+      <div class="lang-modal__buttons">
+        <button type="button" class="btn btn--primary" data-pick-lang="es">Español</button>
+        <button type="button" class="btn btn--secondary" data-pick-lang="en">English</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <header class="site-nav" role="banner">
+    <a href="#top" class="site-nav__brand" aria-label="MEYRA · Inicio">
+      <img src="assets/logos/logo-meyra-texto-corazon.png" alt="MEYRA" />
+    </a>
+
+    <nav class="site-nav__menu" aria-label="Navegación principal">
+      <a href="#top"       data-i18n="nav.home">Inicio</a>
+      <a href="#contact"   data-i18n="nav.visit">Visítanos</a>
+      <a href="#menu"      data-i18n="nav.menu">Menú</a>
+      <a href="#about"     data-i18n="nav.about">Nosotros</a>
+      <a href="#gallery"   data-i18n="nav.gallery">Galería</a>
+      <a href="#reviews"   data-i18n="nav.reviews">Reseñas</a>
+      <span class="site-nav__socials">
+        <a href="#instagram" class="site-nav__icon" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+        </a>
+        <a href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer" class="site-nav__icon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </span>
+    </nav>
+
+    <div class="site-nav__tools">
+      <div class="lang-pill" role="group" aria-label="Idioma / Language">
+        <button type="button" data-set-lang="es" class="is-active">ES</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <button type="button" id="navBurger" class="nav-burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" aria-label="Presentación">
+
+      <!-- Fila superior: texto izquierda + imagen derecha -->
+      <div class="hero__panel">
+        <div class="hero__content">
+          <p class="hero__eyebrow" data-i18n="hero.welcome">Bienvenidos a</p>
+          <img src="assets/logos/logo-meyra.png" alt="MEYRA" class="hero__logo" />
+          <p class="hero__tagline" data-i18n="hero.tagline">Café y Restaurante</p>
+          <div class="hero__divider" aria-hidden="true"></div>
+          <p class="hero__intro" data-i18n="hero.intro">
+            En el corazón de La Paz, un espacio cálido donde los aromas del café recién molido y la comida casera se mezclan con el encanto de una cabaña rústica.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <img src="assets/img/fachada-exterior-recortada.png" alt="Fachada de MEYRA Café y Restaurante en La Paz" class="hero__image" />
+      </div>
+
+      <!-- Franja inferior: solo horario -->
+      <div class="hero__lower">
+        <div class="hero__schedule" role="note">
+          <div class="hero__schedule-text">
+            <span class="hero__schedule-label" data-i18n="schedule.label">Horario de atención</span>
+            <span class="hero__schedule-value" data-i18n="hero.hours">Lun – Sáb · 7:30 AM – 2:30 PM</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════ UBICACIÓN + RESERVA ═══════════ -->
+    <section id="contact" class="section section--cream">
+      <div class="container grid-2-1">
+        <div>
+          <p class="eyebrow"><span>·</span><span data-i18n="location.eyebrow">Visítanos</span><span>·</span></p>
+          <h2 class="section__title" data-i18n="location.title">Encuéntranos en La Paz</h2>
+          <p class="section__lead" data-i18n="location.subtitle">Un rincón acogedor esperando por ti.</p>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.690083511054!2d-110.3343322894838!3d24.147519673325498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ae2d6cd575c24f%3A0xdd1a2ea032e27a52!2sMEYRA%20Caf%C3%A9%20y%20Restaurante!5e0!3m2!1ses-419!2smx!4v1776978056489!5m2!1ses-419!2smx"
+              title="Ubicación de MEYRA Café y Restaurante en Google Maps"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+
+          <a href="https://www.google.com/maps/search/MEYRA+Caf%C3%A9+y+Restaurante/@24.1475197,-110.3343323,17z" target="_blank" rel="noreferrer" class="link-underline">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="location.openInMaps">Abrir en Google Maps</span>
+          </a>
+        </div>
+
+        <aside class="reserve-card">
+          <p class="eyebrow eyebrow--light"><span>·</span><span data-i18n="reserve.eyebrow">Reservaciones</span><span>·</span></p>
+          <h3 class="reserve-card__title" data-i18n="reserve.title">¿Cómo te gustaría reservar?</h3>
+          <p class="reserve-card__lead" data-i18n="reserve.subtitle">Aseguramos tu mesa en el momento. Elige el canal que prefieras.</p>
+
+          <a class="reserve-row" data-href-lang="wa" target="_blank" rel="noreferrer">
+            <span class="reserve-row__icon reserve-row__icon--wa">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </span>
+            <span class="reserve-row__body">
+              <span class="reserve-row__label" data-i18n="reserve.whatsappLabel">Por WhatsApp</span>
+              <span class="reserve-row__desc" data-i18n="reserve.whatsappDesc">Respuesta inmediata, confirmamos al momento.</span>
+            </span>
+            <span class="reserve-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="reserve-row" href="tel:+526128684404">
+            <span class="reserve-row__icon reserve-row__icon--phone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span class="reserve-row__body">
+              <span class="reserve-row__label" data-i18n="reserve.callLabel">Por teléfono</span>
+              <span class="reserve-row__desc">+52 612 868 4404</span>
+            </span>
+            <span class="reserve-row__arrow" aria-hidden="true">→</span>
+          </a>
+
+          <div class="reserve-card__hours">
+            <p class="hours__label" data-i18n="hours.title">Horarios</p>
+            <p class="hours__line" data-i18n="hours.weekdays">Lunes a Sábado</p>
+            <p class="hours__line" data-i18n="hours.time">7:30 AM – 2:30 PM</p>
+            <p class="hours__line hours__line--muted" data-i18n="hours.sunday">Domingo · Cerrado</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ═══════════ MENÚ CTA ═══════════ -->
+    <section id="menu" class="section section--coffee">
+      <div class="container menu-grid">
+        <div class="menu-grid__text">
+          <p class="eyebrow eyebrow--light"><span>·</span><span data-i18n="menu.eyebrow">Nuestro menú</span><span>·</span></p>
+          <h2 class="section__title section__title--xl" data-i18n="menu.title">Consulta nuestra carta completa</h2>
+          <p class="section__intro" data-i18n="menu.subtitle">
+            Desayunos, almuerzos, bebidas y postres — todo preparado con ingredientes naturales.
+          </p>
+          <a class="btn btn--cream" id="menuLink" href="assets/menu/menu-meyra-es.pdf" target="_blank" rel="noreferrer">
+            <span data-i18n="menu.view">Ver menú en PDF</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="hint" data-i18n="menu.hint">Se abrirá el menú en español</p>
+        </div>
+        <figure class="menu-grid__img">
+          <img src="assets/img/menu-ambiente.jpg" alt="Bebida refrescante con la carta MEYRA" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ═══════════ NOSOTROS ═══════════ -->
+    <section id="about" class="section section--cream-100">
+      <div class="container">
+        <header class="section__header">
+          <p class="eyebrow"><span>·</span><span data-i18n="about.eyebrow">Nosotros</span><span>·</span></p>
+          <h2 class="section__title section__title--xl" data-i18n="about.title">Nuestra esencia</h2>
+          <div class="about-ornament about-ornament--top">
+            <img src="assets/img/pez-izq.png" alt="" aria-hidden="true">
+          </div>
+          <p class="section__intro" data-i18n="about.intro">
+            MEYRA es mucho más que un café. Es un espacio acogedor donde cada visita se vuelve una pausa para reconectar con lo esencial: el gusto por lo casero, lo saludable y lo auténtico.
+          </p>
+          <div class="about-ornament about-ornament--bottom">
+            <img src="assets/img/pez-der.png" alt="" aria-hidden="true">
+          </div>
+        </header>
+
+        <div class="about-block">
+          <figure class="about-block__media">
+            <img src="assets/img/mesa-mural-interior.jpg" alt="Interior cálido de MEYRA con mural" />
+            <figcaption class="about-block__quote" data-i18n="about.quote">
+              "Una rica comida se disfruta más con agradable compañía."
+            </figcaption>
+          </figure>
+          <div class="about-block__text">
+            <p class="kicker" data-i18n="about.diffTitle">¿Qué nos hace diferentes?</p>
+            <h3 class="about-block__lead" data-i18n="about.diffLead">Ingredientes reales, sin compromisos.</h3>
+            <ul class="pillars">
+              <li><strong data-i18n="about.pillar1k">Sin artificiales</strong><span data-i18n="about.pillar1v">Sin aceites dañinos, azúcares refinados ni conservantes.</span></li>
+              <li><strong data-i18n="about.pillar2k">Hecho en casa</strong><span data-i18n="about.pillar2v">Mermeladas, chiles curtidos y pepinillos — todo de nuestra cocina.</span></li>
+              <li><strong data-i18n="about.pillar3k">Café de origen</strong><span data-i18n="about.pillar3v">Seleccionado con cuidado, recién molido cada mañana.</span></li>
+              <li><strong data-i18n="about.pillar4k">Sin gluten</strong><span data-i18n="about.pillar4v">Postres endulzados con azúcares naturales.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-block about-block--reverse">
+          <div class="about-block__text">
+            <p class="kicker" data-i18n="about.storyTitle">Nuestra historia</p>
+            <p data-i18n="about.storyBody">
+              MEYRA nació de un ideal sencillo: crear un lugar que se sienta como casa. Usamos carnes locales orgánicas y preparamos todo de forma natural — mermeladas, chiles curtidos y pepinillos. Cada platillo está pensado en tu bienestar, con recetas que combinan tradición y frescura.
+            </p>
+            <blockquote class="about-block__closing" data-i18n="about.closing">
+              MEYRA será ese lugar al que siempre quieras volver.
+            </blockquote>
+          </div>
+          <figure class="about-block__media">
+            <img src="assets/img/tortillas-ingredientes.jpg" alt="Tortillas e ingredientes naturales" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ GALERÍA ═══════════ -->
+    <section id="gallery" class="section section--cream">
+      <div class="container">
+        <header class="section__header center">
+          <p class="eyebrow"><span>·</span><span data-i18n="gallery.eyebrow">Galería</span><span>·</span></p>
+          <h2 class="section__title section__title--xl" data-i18n="gallery.title">Platillos con un toque especial</h2>
+          <p class="section__lead" data-i18n="gallery.subtitle">Recetas tradicionales con un toque contemporáneo.</p>
+        </header>
+
+        <ul class="gallery">
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p09.jpg" alt="Avocado Toast con huevo" /><span class="gallery__caption" data-i18n="dish.p09">Avocado Toast con huevo</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles rojos y verdes" /><span class="gallery__caption" data-i18n="dish.p13">Chilaquiles rojos y verdes</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p06.jpg" alt="French Toast con fruta" /><span class="gallery__caption" data-i18n="dish.p06">French Toast con fruta</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p07.jpg" alt="Sándwich con chips de raíz" /><span class="gallery__caption" data-i18n="dish.p07">Sándwich con chips de raíz</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p11.jpg" alt="Avocado Toast del día" /><span class="gallery__caption" data-i18n="dish.p11">Avocado Toast del día</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja natural" /><span class="gallery__caption" data-i18n="dish.p01">Jugo de naranja natural</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p14.jpg" alt="French Toast tradicional" /><span class="gallery__caption" data-i18n="dish.p14">French Toast tradicional</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p10.jpg" alt="Avocado Toast con bacon" /><span class="gallery__caption" data-i18n="dish.p10">Avocado Toast con bacon</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p03.jpg" alt="Brunch del jardín" /><span class="gallery__caption" data-i18n="dish.p03">Brunch del jardín</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p08.jpg" alt="Sándwich artesanal" /><span class="gallery__caption" data-i18n="dish.p08">Sándwich artesanal</span></li>
+          <li class="gallery__item"><img loading="lazy" src="assets/img/p12.jpg" alt="Desayuno Meyra" /><span class="gallery__caption" data-i18n="dish.p12">Desayuno Meyra</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════ TESTIMONIOS ═══════════ -->
+    <section class="section section--cream-100" id="reviews">
+      <div class="container">
+        <header class="reviews__header">
+          <div>
+            <p class="eyebrow"><span>·</span><span data-i18n="testimonials.eyebrow">Lo que dicen</span><span>·</span></p>
+            <h2 class="section__title" data-i18n="testimonials.title">Historias de quienes nos visitan</h2>
+            <p class="section__lead" data-i18n="testimonials.subtitle">Reseñas reales de nuestros comensales en Google.</p>
+          </div>
+          <div class="reviews__badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            <div>
+              <strong>★★★★★</strong>
+              <small>Reseñas verificadas en Google</small>
+            </div>
+          </div>
+        </header>
+
+        <!-- Carrusel -->
+        <div class="reviews__carousel" id="reviewsCarousel">
+          <div class="reviews__stage">
+            <button class="reviews__nav reviews__nav--prev" id="reviewsPrev" aria-label="Anterior">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          <div class="reviews__track-wrap">
+            <div class="reviews__track" id="reviewsTrack">
+
+              <!-- 1. Nayeli Reyes -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a/ACg8ocKgiyYGGJ6H5Ihd_VSUkkdpApYZDvE2JmlXD6cb0hbpEVhwRA=w45-h45-p-rp-mo-br100" alt="Nayeli Reyes" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#0f9d58;display:none;">N</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Nayeli Reyes</p>
+                      <p class="review-card__meta">2 reseñas · 2 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace 6 meses</span>
+                  </div>
+                  <p class="review-card__text">Amé el lugar desde que entré, sentí el ambiente muy acogedor, en verdad es lindo, me encantó la decoración, muy peculiar. 10 de 10 la mesera que me atendió, súper amable. La calidad de los ingredientes otro 10 de 10 — buen sabor, muy rico y saludable.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Nayeli-Reyes-1.jpg" alt="Foto reseña Nayeli 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/Nayeli-Reyes-2.jpg" alt="Foto reseña Nayeli 2" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 2. noemi js -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjUUv_fTFTYxWGyvHbpNwLyBaml4htR_c1hd7p4tOMNNvTp7YffS=w45-h45-p-rp-mo-ba4-br100" alt="noemi js" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#1a73e8;display:none;">N</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">noemi js</p>
+                      <p class="review-card__meta"><span class="review-card__local-guide">⚡ Local Guide</span> · 39 reseñas · 72 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace 2 meses</span>
+                  </div>
+                  <p class="review-card__text">Parecía ser un lugar pequeño, tipo cabañita, pero entras y es un jardín muy bonito. Muy atento el chico que nos atendió. Muy recomendado. ¡El café! La taza no es como en otros restaurantes que te dejan con ganas de pedir más.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $200–300</span>
+                  </div>
+                </article>
+              </div>
+
+              <!-- 3. Criztal Galarza -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjUvXdU4hBSlO57famSuIOXEK8Qzo3K_FsbNNwX5gZo5Ol_4i6s1=w45-h45-p-rp-mo-br100" alt="Criztal Galarza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#e91e63;display:none;">C</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Criztal Galarza</p>
+                      <p class="review-card__meta">14 reseñas · 7 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace 6 meses</span>
+                  </div>
+                  <p class="review-card__text">Una excelente opción para desayuno/late lunch, muy limpio y muy amables, concepto y decoración muy linda 💖</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $200–300</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Criztal-Galarza-1.jpg" alt="Foto reseña Criztal 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/Criztal-Galarza-2.jpg" alt="Foto reseña Criztal 2" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 4. MANUEL CRUZ MORENO -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjUdQ8TPCdHvvjNV1wAudOF7nnwF4Qulsmx7z5rJlzQyXX58PQj7=w45-h45-p-rp-mo-br100" alt="Manuel Cruz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#3949ab;display:none;">M</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Manuel Cruz Moreno</p>
+                      <p class="review-card__meta">3 reseñas</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace 7 meses</span>
+                  </div>
+                  <p class="review-card__text">Me gustó mucho que cuidan que todos sus ingredientes sean de origen natural y saludables, tanto en bebidas como la comida. Tienen A/C y comida muy deliciosa.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Tipo</strong> Cena</span>
+                  </div>
+                </article>
+              </div>
+
+              <!-- 5. Pilar Andrade -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a/ACg8ocIhj-i8s6j4U22bFQi8FJOQtWCXVZv1WQSjq5pPo5Xln5JEZw=w45-h45-p-rp-mo-br100" alt="Pilar Andrade" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#f57c00;display:none;">P</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Pilar Andrade</p>
+                      <p class="review-card__meta">2 reseñas · 2 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace una semana</span>
+                  </div>
+                  <p class="review-card__text">Super. Riquísima comida y una atención de maravilla. Lástima que quitaron la pechuga con jitomate cherry y ensalada 😔 De ahí todo super.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Espera</strong> Sin espera</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Pilar-Andrade-1.jpg" alt="Foto reseña Pilar 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/Pilar-Andrade-2.jpg" alt="Foto reseña Pilar 2" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 6. ROSI BERNAL TOLENTINO -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjVn-bzyDGhsMCGGL_TZkq71XHcO_X1t882EDdG9Z2VZQ2vpbfJV=w45-h45-p-rp-mo-br100" alt="Rosi Bernal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#c62828;display:none;">R</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Rosi Bernal Tolentino</p>
+                      <p class="review-card__meta">3 reseñas · 5 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace una semana</span>
+                  </div>
+                  <p class="review-card__text">El mejor lugar en La Paz si buscas un desayuno rico y saludable.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $200–300</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/ROSI-BERNAL-TOLENTINO-1.jpg" alt="Foto reseña Rosi 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/ROSI-BERNAL-TOLENTINO-2.jpg" alt="Foto reseña Rosi 2" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/ROSI-BERNAL-TOLENTINO-3.jpg" alt="Foto reseña Rosi 3" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 7. Stephany So -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjUJtpXUSJYo6XpCxc8IWrm9pqyqxuWNG3v9AtN6i3NV9KQmspiC=w45-h45-p-rp-mo-br100" alt="Stephany So" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#00897b;display:none;">S</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Stephany So</p>
+                      <p class="review-card__meta">2 reseñas · 2 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace 3 semanas</span>
+                  </div>
+                  <p class="review-card__text">El lugar perfecto para comer delicioso y pasar un momento muy agradable, servicio de calidad y lugar acogedor.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $300–400</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Stephany-So-1.jpg" alt="Foto reseña Stephany" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 8. JC Sanchez -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjX7OyRrJNG_jqDkcncD3B67eaec2q_Xtt2tpBF2URtF4JXzhEYf=w45-h45-p-rp-mo-ba3-br100" alt="JC Sanchez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#5e35b1;display:none;">J</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">JC Sanchez</p>
+                      <p class="review-card__meta"><span class="review-card__local-guide">⚡ Local Guide</span> · 31 reseñas · 10 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Editada hace 4 semanas</span>
+                  </div>
+                  <p class="review-card__text">Lugar cerrado muy agradable con A/C y lugar abierto muy relajante con vegetación y pajaritos. Comida muy rica y porciones generosas. 5★</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $200–300</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/JC-Sanchez-1.jpg" alt="Foto reseña JC 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/JC-Sanchez-2.jpg" alt="Foto reseña JC 2" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/JC-Sanchez-3.jpg" alt="Foto reseña JC 3" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/JC-Sanchez-4.jpg" alt="Foto reseña JC 4" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 9. MARISOL ANGULO ROMERO -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a/ACg8ocIKVZzJ5x2e5JndFbhjsRKBR6pWLjB-rJ5BvGlgRZLnY2uS4Q=w45-h45-p-rp-mo-br100" alt="Marisol Angulo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#6d4c41;display:none;">M</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Marisol Angulo Romero</p>
+                      <p class="review-card__meta">8 reseñas · 5 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace un mes</span>
+                  </div>
+                  <p class="review-card__text">Muy bello lugar y muy rico.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 4</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Tipo</strong> Brunch</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/MARISOL-ANGULO-ROMERO-1.jpg" alt="Foto reseña Marisol" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 10. Vianet Camacho -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a-/ALV-UjU3NtTpJt93JP6F0auJHv3jVaZvLKY-mTuC8IT3IkJ7kOB_ICzk=w45-h45-p-rp-mo-br100" alt="Vianet Camacho" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#00838f;display:none;">V</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Vianet Camacho</p>
+                      <p class="review-card__meta">4 reseñas · 8 fotos</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="5 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace un mes</span>
+                  </div>
+                  <p class="review-card__text">Excelente lugar. En verdad lo recomiendo, trato amable, comida rica y saludable. Agradable ambiente. Opción con A/C y opción al aire libre.</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 5</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $200–300</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Vianet-Camacho-1.jpg" alt="Foto reseña Vianet 1" loading="lazy">
+                    <img class="review-card__photo" src="assets/img/Vianet-Camacho-2.jpg" alt="Foto reseña Vianet 2" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+              <!-- 11. Lizbeth Camacho -->
+              <div class="reviews__slide">
+                <article class="review-card">
+                  <div class="review-card__header">
+                    <div class="review-card__avatar-wrap">
+                      <img class="review-card__avatar-img" src="https://lh3.googleusercontent.com/a/ACg8ocJbmUGhGcFhQnRNr7uQuU4wkx7XuChm3WmkZE6o9plWmRx2eQ=w45-h45-p-rp-mo-br100" alt="Lizbeth Camacho" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy">
+                      <div class="review-card__avatar-fallback" style="background:#558b2f;display:none;">L</div>
+                    </div>
+                    <div class="review-card__identity">
+                      <p class="review-card__name">Lizbeth Camacho</p>
+                      <p class="review-card__meta">5 reseñas · 1 foto</p>
+                    </div>
+                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+
+                  </div>
+                  <div class="review-card__rating">
+                    <span class="review-card__stars" aria-label="4 estrellas"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#dadce0"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+                    <span class="review-card__date">Hace un mes</span>
+                  </div>
+                  <p class="review-card__text">Muy agradable lugar, comida rica, excelente inicio primaveral 🌸🌸🌸</p>
+                  <div class="review-card__details">
+                    <span class="review-card__chip"><strong>Comida</strong> 5</span>
+                    <span class="review-card__chip"><strong>Servicio</strong> 4</span>
+                    <span class="review-card__chip"><strong>Ambiente</strong> 5</span>
+                    <span class="review-card__chip"><strong>Precio</strong> $300–400</span>
+                  </div>
+                  <div class="review-card__photos">
+                    <img class="review-card__photo" src="assets/img/Lizbeth-Camacho-1.jpg" alt="Foto reseña Lizbeth" loading="lazy">
+                  </div>
+                </article>
+              </div>
+
+            </div><!-- /reviews__track -->
+          </div><!-- /reviews__track-wrap -->
+            <button class="reviews__nav reviews__nav--next" id="reviewsNext" aria-label="Siguiente">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div><!-- /reviews__stage -->
+
+          <!-- Dots -->
+          <div class="reviews__dots" id="reviewsDots" aria-label="Navegación de reseñas"></div>
+
+          <!-- CTA Google -->
+          <div class="reviews__cta">
+            <a class="reviews__google-link" href="https://www.google.com/maps/place/MEYRA+Caf%C3%A9+y+Restaurante/@24.1475148,-110.3343269,17z/data=!4m8!3m7!1s0x86ae2d6cd575c24f:0xdd1a2ea032e27a52!8m2!3d24.1475148!4d-110.331752!9m1!1b1!16s%2Fg%2F11xp0pb8mx?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">
+              <svg class="reviews__cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 11L5 7L9 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Ver todas las reseñas en Google
+              <svg class="reviews__cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+        </div><!-- /reviews__carousel -->
+      </div>
+    </section>
+
+    <!-- ═══════════ REDES SOCIALES ═══════════ -->
+    <section class="section section--cream" id="instagram">
+      <div class="container center">
+        <p class="eyebrow"><span>·</span><span data-i18n="nav.social">Nuestras redes</span><span>·</span></p>
+        <h2 class="section__title" data-i18n="social.title">Síguenos en redes</h2>
+        <p class="section__lead" data-i18n="social.subtitle">Los nuevos platillos, eventos y momentos del día a día.</p>
+
+        <div class="social-cards">
+          <!-- Instagram -->
+          <div class="social-card">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2.5"/></svg>
+            <h3 class="social-card__handle">@meyra.cafe.restaurante.lpz</h3>
+            <p class="social-card__desc" data-i18n="instagram.subtitle">Los nuevos platillos, eventos y momentos del día a día.</p>
+            <a class="btn btn--coffee" href="https://www.instagram.com/meyra.cafe.restaurante.lpz/" target="_blank" rel="noreferrer">
+              <span data-i18n="instagram.follow">Seguir en Instagram</span>
+            </a>
+          </div>
+
+          <!-- Facebook -->
+          <div class="social-card">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <h3 class="social-card__handle" data-i18n="facebook.title">MEYRA Café y Restaurante</h3>
+            <p class="social-card__desc" data-i18n="facebook.subtitle">Fotos, historias y actualizaciones de nuestra cocina.</p>
+            <a class="btn btn--coffee" href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer">
+              <span data-i18n="facebook.follow">Ver en Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="ig-grid" aria-label="Vista previa de Instagram">
+          <li><img loading="lazy" src="assets/img/p09.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/p02.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/p13.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/p11.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/p01.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/p10.jpg" alt="" /></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__grid">
+      <div>
+        <p class="site-footer__brand">MEYRA</p>
+        <p class="site-footer__tag" data-i18n="footer.tag">Café y Restaurante · La Paz, BCS</p>
+      </div>
+      <div>
+        <p class="site-footer__h" data-i18n="nav.contact">Contacto</p>
+        <a href="tel:+526128684404">+52 612 868 4404</a>
+        <p data-i18n="footer.address">La Paz, Baja California Sur</p>
+        <a href="https://www.instagram.com/meyra.cafe.restaurante.lpz/" target="_blank" rel="noreferrer">@meyra.cafe.restaurante.lpz</a>
+        <a href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer">MEYRA Café y Restaurante</a>
+      </div>
+      <div>
+        <p class="site-footer__h" data-i18n="hours.title">Horarios</p>
+        <p data-i18n="hours.weekdays">Lunes a Sábado</p>
+        <p data-i18n="hours.time">7:30 AM – 2:30 PM</p>
+        <p class="muted" data-i18n="hours.sunday">Domingo · Cerrado</p>
+      </div>
+      <div>
+        <p class="site-footer__h" data-i18n="nav.menu">Menú</p>
+        <a href="assets/menu/menu-meyra-es.pdf" target="_blank" rel="noreferrer">Menú · Español (PDF)</a>
+        <a href="assets/menu/menu-meyra-en.pdf" target="_blank" rel="noreferrer">Menu · English (PDF)</a>
+      </div>
+    </div>
+    <div class="container site-footer__legal">
+      <span data-i18n="footer.rights">© 2026 MEYRA · Todos los derechos reservados</span>
+      <span><span data-i18n="footer.madeWith">Hecho con</span> <span class="heart">♥</span> <span data-i18n="footer.inLaPaz">en La Paz</span></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+  (function () {
+    var track    = document.getElementById('reviewsTrack');
+    var dotsWrap = document.getElementById('reviewsDots');
+    if (!track || !dotsWrap) return;
+
+    var slides    = Array.from(track.querySelectorAll('.reviews__slide'));
+    var total     = slides.length;
+    var INTERVAL  = 8000;
+    var perView   = window.innerWidth < 768 ? 1 : 2;
+    var current   = 0;
+    var timer     = null;
+    var dots      = [];
+    var modalOpen = false;
+
+    /* ── Desplazamiento ── */
+    function getStepPx() {
+      return slides[0].offsetWidth + 20; /* ancho real + gap CSS */
+    }
+
+    /* ── Ir a posición (avance de 1 en 1) ── */
+    function goTo(idx) {
+      var max = total - perView;
+      idx = Math.max(0, Math.min(idx, max));
+      current = idx;
+      track.style.transform = 'translateX(-' + (idx * getStepPx()) + 'px)';
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+    }
+
+    function next() { goTo(current + 1 > total - perView ? 0 : current + 1); }
+
+    /* ── Timer (fuente única, nunca duplicado) ── */
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, INTERVAL);
+    }
+    function stopTimer() { clearInterval(timer); timer = null; }
+
+    /* ── Construir dots ── */
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      dots = [];
+      var count = total - perView + 1;
+      for (var i = 0; i < count; i++) {
+        (function (idx) {
+          var btn = document.createElement('button');
+          btn.className = 'reviews__dot';
+          btn.setAttribute('aria-label', 'Reseña ' + (idx + 1));
+          btn.addEventListener('click', function () { goTo(idx); startTimer(); });
+          dotsWrap.appendChild(btn);
+          dots.push(btn);
+        })(i);
+      }
+    }
+
+    /* ── Badge "+N" en tarjetas con más de 3 fotos ── */
+    slides.forEach(function (slide) {
+      var imgs = slide.querySelectorAll('.review-card__photos img');
+      if (imgs.length <= 3) return;
+      var extra = imgs.length - 3;
+      for (var i = 3; i < imgs.length; i++) imgs[i].style.display = 'none';
+      var wrap = document.createElement('div');
+      wrap.className = 'photo-wrap';
+      var last = imgs[2];
+      last.parentNode.insertBefore(wrap, last);
+      wrap.appendChild(last);
+      var badge = document.createElement('div');
+      badge.className = 'photos-more-badge';
+      badge.textContent = '+' + extra;
+      wrap.appendChild(badge);
+    });
+
+    /* ── Modal ── */
+    var overlay = document.createElement('div');
+    overlay.className = 'review-modal-overlay';
+    overlay.innerHTML =
+      '<div class="review-modal" role="dialog" aria-modal="true">' +
+        '<button class="review-modal__close" aria-label="Cerrar">&times;</button>' +
+        '<div class="review-modal__content"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var modalContent = overlay.querySelector('.review-modal__content');
+    var closeBtn     = overlay.querySelector('.review-modal__close');
+
+    function openModal(card) {
+      stopTimer();
+      modalOpen = true;
+      var clone = card.cloneNode(true);
+      /* mostrar fotos ocultas (las que pasaban de 3) */
+      clone.querySelectorAll('.review-card__photos img').forEach(function (img) {
+        img.style.display = '';
+      });
+      /* quitar badge en el modal */
+      var badge = clone.querySelector('.photos-more-badge');
+      if (badge) badge.remove();
+      /* reconstruir wrap si existe para no perder la foto */
+      clone.querySelectorAll('.photo-wrap').forEach(function (w) {
+        var img = w.querySelector('img');
+        w.parentNode.insertBefore(img, w);
+        w.remove();
+      });
+      modalContent.innerHTML = '';
+      modalContent.appendChild(clone);
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      modalOpen = false;
+      setTimeout(function () { modalContent.innerHTML = ''; startTimer(); }, 260);
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modalOpen) closeModal(); });
+
+    /* ── Flechas prev / next ── */
+    var prevBtn = document.getElementById('reviewsPrev');
+    var nextBtn = document.getElementById('reviewsNext');
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1 < 0 ? total - perView : current - 1); startTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); startTimer(); });
+
+    /* ── Hover pausa / mouseleave reanuda ── */
+    slides.forEach(function (slide) {
+      slide.addEventListener('mouseenter', function () { if (!modalOpen) stopTimer(); });
+      slide.addEventListener('mouseleave', function () { if (!modalOpen) startTimer(); });
+      var card = slide.querySelector('.review-card');
+      if (card) card.addEventListener('click', function () { openModal(card); });
+    });
+
+    /* ── Responsive con debounce ── */
+    var resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        var newPer = window.innerWidth < 768 ? 1 : 2;
+        if (newPer !== perView) { perView = newPer; buildDots(); }
+        goTo(Math.min(current, total - perView));
+      }, 120);
+    });
+
+    /* ── Init ── */
+    buildDots();
+    goTo(0);
+    startTimer();
+  })();
+  </script>
+</body>
+</html>
