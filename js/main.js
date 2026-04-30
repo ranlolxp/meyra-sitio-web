@@ -182,9 +182,18 @@
   // ────────────────────────────────────────
   // Helpers de almacenamiento (con fallback si localStorage no existe)
   // ────────────────────────────────────────
+  const ALLOWED_KEYS = ['meyra-lang', 'meyra-lang-chosen'];
+  const ALLOWED_VALUES = { 'meyra-lang': ['es', 'en'], 'meyra-lang-chosen': ['1'] };
   const storage = {
-    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
-    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+    get(k) {
+      if (!ALLOWED_KEYS.includes(k)) return null;
+      try { return localStorage.getItem(k); } catch { return null; }
+    },
+    set(k, v) {
+      if (!ALLOWED_KEYS.includes(k)) return;
+      if (ALLOWED_VALUES[k] && !ALLOWED_VALUES[k].includes(String(v))) return;
+      try { localStorage.setItem(k, String(v)); } catch {}
+    },
   };
 
   // ────────────────────────────────────────

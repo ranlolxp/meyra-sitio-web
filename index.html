@@ -31,6 +31,23 @@
   <link rel="icon" type="image/png" href="assets/logos/logo-meyra-texto-corazon.png" />
   <link rel="apple-touch-icon" href="assets/logos/logo-meyra-texto-corazon.png" />
 
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://lh3.googleusercontent.com https://meyra.mx;
+    frame-src https://www.google.com;
+    connect-src 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'none';
+  " />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
   <!-- Preconnect a Google Fonts (acelera carga) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,7 +123,7 @@
       <a href="#gallery"   data-i18n="nav.gallery">Galería</a>
       <a href="#reviews"   data-i18n="nav.reviews">Reseñas</a>
       <span class="site-nav__socials">
-        <a href="#instagram" class="site-nav__icon" aria-label="Instagram">
+        <a href="#instagram" class="site-nav__icon" aria-label="Instagram" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
         </a>
         <a href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer" class="site-nav__icon" aria-label="Facebook">
@@ -174,6 +191,7 @@
               title="Ubicación de MEYRA Café y Restaurante en Google Maps"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-same-origin"
               allowfullscreen></iframe>
           </div>
 
