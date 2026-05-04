@@ -321,20 +321,23 @@
           <p class="section__lead" data-i18n="gallery.subtitle">Recetas tradicionales con un toque contemporáneo.</p>
         </header>
 
-        <ul class="gallery">
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p09.jpg" alt="Avocado Toast con huevo" /><span class="gallery__caption" data-i18n="dish.p09">Avocado Toast con huevo</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles rojos y verdes" /><span class="gallery__caption" data-i18n="dish.p13">Chilaquiles rojos y verdes</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p06.jpg" alt="French Toast con fruta" /><span class="gallery__caption" data-i18n="dish.p06">French Toast con fruta</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p07.jpg" alt="Sándwich con chips de raíz" /><span class="gallery__caption" data-i18n="dish.p07">Sándwich con chips de raíz</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p11.jpg" alt="Avocado Toast del día" /><span class="gallery__caption" data-i18n="dish.p11">Avocado Toast del día</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja natural" /><span class="gallery__caption" data-i18n="dish.p01">Jugo de naranja natural</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p14.jpg" alt="French Toast tradicional" /><span class="gallery__caption" data-i18n="dish.p14">French Toast tradicional</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p10.jpg" alt="Avocado Toast con bacon" /><span class="gallery__caption" data-i18n="dish.p10">Avocado Toast con bacon</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p03.jpg" alt="Brunch del jardín" /><span class="gallery__caption" data-i18n="dish.p03">Brunch del jardín</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p08.jpg" alt="Sándwich artesanal" /><span class="gallery__caption" data-i18n="dish.p08">Sándwich artesanal</span></li>
-          <li class="gallery__item"><img loading="lazy" src="assets/img/p12.jpg" alt="Desayuno Meyra" /><span class="gallery__caption" data-i18n="dish.p12">Desayuno Meyra</span></li>
+        <ul class="gallery" id="menuGallery">
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-06.jpg" alt="Chilaquiles con carne" /><span class="gallery__caption" data-i18n="dish.g06">Chilaquiles con carne</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p06.jpg" alt="French Toast con fruta" /><span class="gallery__caption" data-i18n="dish.p06">French Toast con fruta</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p07.jpg" alt="Sándwich con chips de raíz" /><span class="gallery__caption" data-i18n="dish.p07">Sándwich con chips de raíz</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p03.jpg" alt="Brunch del jardín" /><span class="gallery__caption" data-i18n="dish.p03">Brunch del jardín</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p12.jpg" alt="Desayuno Meyra" /><span class="gallery__caption" data-i18n="dish.p12">Desayuno Meyra</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-02.jpg" alt="Omelette de la casa" /><span class="gallery__caption" data-i18n="dish.g02">Omelette de la casa</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-10.jpg" alt="Smoothie de frutos rojos" /><span class="gallery__caption" data-i18n="dish.g10">Smoothie de frutos rojos</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-11.jpg" alt="Jugo verde" /><span class="gallery__caption" data-i18n="dish.g11">Jugo verde</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-13.jpg" alt="Pastel de chocolate entero" /><span class="gallery__caption" data-i18n="dish.g13">Pastel de chocolate entero</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-03.jpg" alt="Postre de frutos rojos" /><span class="gallery__caption" data-i18n="dish.g03">Postre de frutos rojos</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-01.jpg" alt="Avocado Toast especial" /><span class="gallery__caption" data-i18n="dish.g01">Avocado Toast especial</span></li>
         </ul>
+        <div class="gallery__actions">
+          <button type="button" class="btn btn--coffee gallery__toggle" id="galleryToggle" data-i18n="gallery.more">Ver más fotos</button>
+        </div>
       </div>
     </section>
 
@@ -772,12 +775,12 @@
         </div>
 
         <ul class="ig-grid" aria-label="Vista previa de Instagram">
-          <li><img loading="lazy" src="assets/img/p09.jpg" alt="" /></li>
-          <li><img loading="lazy" src="assets/img/p02.jpg" alt="" /></li>
-          <li><img loading="lazy" src="assets/img/p13.jpg" alt="" /></li>
-          <li><img loading="lazy" src="assets/img/p11.jpg" alt="" /></li>
-          <li><img loading="lazy" src="assets/img/p01.jpg" alt="" /></li>
-          <li><img loading="lazy" src="assets/img/p10.jpg" alt="" /></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-03.jpg" alt="Postre de frutos rojos" /></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-09.jpg" alt="Omelette con ensalada" /></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-12.jpg" alt="Pastel de chocolate" /></li>
+          <li><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja natural" /></li>
+          <li><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles rojos y verdes" /></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-08.jpg" alt="Avocado Toast del patio" /></li>
         </ul>
       </div>
     </section>

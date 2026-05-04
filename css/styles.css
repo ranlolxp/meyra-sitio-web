@@ -880,6 +880,72 @@ a:focus-visible, button:focus-visible {
 }
 .gallery__item:hover .gallery__caption,
 .gallery__item:focus-within .gallery__caption { opacity: 1; }
+.gallery__actions {
+  display: none;
+  justify-content: center;
+  margin-top: 18px;
+}
+.gallery__toggle {
+  min-width: 180px;
+  justify-content: center;
+}
+.gallery__item--extra { display: block; }
+
+.gallery-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 15, 7, 0.72);
+  z-index: 9100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.gallery-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.gallery-modal {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: 88vh;
+  background: var(--c-cream-50);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 24px 70px rgba(26,15,7,0.28);
+  overflow: auto;
+}
+.gallery-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(26,15,7,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+}
+.gallery-modal__image {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--c-cream-100);
+}
+.gallery-modal__caption {
+  margin-top: 14px;
+  font-family: var(--f-serif);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--c-coffee-900);
+}
 
 /* ────────────────────────────────────────
    TESTIMONIOS / GOOGLE REVIEWS CARRUSEL
@@ -1449,7 +1515,22 @@ a:focus-visible, button:focus-visible {
   .about-block         { grid-template-columns: 1fr; gap: 32px; margin-bottom: 44px; }
   .about-block--reverse .about-block__media { order: -1; }
   .about-block__media img { height: 380px; }
+  .about-block:first-of-type .about-block__media img {
+    height: auto;
+    object-fit: contain;
+  }
+  .about-block:first-of-type .about-block__quote {
+    bottom: 16px;
+    left: 16px;
+    max-width: min(320px, calc(100% - 32px));
+    padding: 18px 22px;
+    font-size: 18px;
+    border-radius: 4px;
+  }
   .gallery             { grid-template-columns: repeat(3, 1fr); }
+  .gallery__actions    { display: flex; }
+  .gallery__item--extra { display: none; }
+  .gallery.is-expanded .gallery__item--extra { display: block; }
   .social-cards        { grid-template-columns: 1fr; gap: 20px; }
   .ig-grid             { grid-template-columns: repeat(4, 1fr); }
   .site-footer__grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -1539,9 +1620,23 @@ a:focus-visible, button:focus-visible {
   /* About */
   .about-block__quote {
     position: static;
-    max-width: 100%;
+    width: fit-content;
+    max-width: min(360px, 88%);
     margin-top: 16px;
+    padding: 16px 22px;
     border-radius: 4px;
+    font-size: 18px;
+  }
+  .about-block:first-of-type .about-block__quote {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    margin-top: 0;
+    max-width: min(300px, calc(100% - 28px));
+  }
+  .about-block:first-of-type .about-block__media img {
+    height: auto;
+    object-fit: contain;
   }
   .about-block__media img { height: 280px; }
   .pillars { grid-template-columns: 1fr; gap: 4px; }
@@ -1550,6 +1645,7 @@ a:focus-visible, button:focus-visible {
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .gallery__caption { opacity: 1; padding: 12px; font-size: 14px; }
   .gallery__caption { background: linear-gradient(180deg, transparent 50%, rgba(26,15,7,0.9) 100%); }
+  .gallery__item { aspect-ratio: 1 / 0.82; }
 
   /* Mapa */
   .map { height: 300px; }
@@ -1565,6 +1661,9 @@ a:focus-visible, button:focus-visible {
   .reviews__nav { display: none; }
   .review-modal { padding: 20px; }
   .review-modal__content .review-card__photo { flex: 1 1 100%; min-width: 100%; }
+  .gallery-modal { padding: 16px 16px 14px; }
+  .gallery-modal__image { max-height: 60vh; }
+  .gallery-modal__caption { font-size: 20px; }
 
   /* IG */
   .ig-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1574,10 +1673,112 @@ a:focus-visible, button:focus-visible {
   .site-footer__legal { flex-direction: column; align-items: center; text-align: center; }
 }
 
+/* Celulares: priorizar lectura antes de imágenes */
+@media (max-width: 600px) {
+  #about .section__header {
+    margin-bottom: 22px;
+  }
+
+  #about .section__title {
+    margin-bottom: 12px;
+  }
+
+  #about .section__intro {
+    font-size: 15px;
+    line-height: 1.62;
+  }
+
+  .about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 30px;
+  }
+
+  .about-block:first-of-type .about-block__text {
+    order: 1;
+  }
+
+  .about-block:first-of-type .about-block__media {
+    order: 2;
+  }
+
+  .about-block--reverse .about-block__media {
+    order: 2;
+  }
+
+  .about-block--reverse .about-block__text {
+    order: 1;
+    padding-top: 0;
+  }
+
+  .about-block__media img {
+    height: 220px;
+  }
+  .about-block:first-of-type .about-block__media img {
+    height: auto;
+  }
+
+  .about-block__text {
+    gap: 14px;
+  }
+
+  .about-block__text .kicker {
+    font-size: 20px;
+    letter-spacing: 0.13em;
+  }
+
+  .about-block__lead {
+    font-size: 24px;
+    line-height: 1.18;
+  }
+
+  .pillars li {
+    padding: 12px 0;
+  }
+
+  .pillars li strong {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  .pillars li span {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .about-block__closing {
+    font-size: 23px;
+    line-height: 1.32;
+  }
+}
+
 /* Móvil pequeño (≤420px) */
 @media (max-width: 420px) {
   .hero__actions { flex-direction: column; width: 100%; }
   .hero__actions .btn { width: 100%; justify-content: center; }
   .lang-modal__buttons { flex-direction: column; }
-  .gallery { grid-template-columns: 1fr; }
+  .about-block__quote {
+    max-width: 88%;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+  .about-block:first-of-type .about-block__quote {
+    bottom: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .gallery__item {
+    aspect-ratio: 1 / 0.78;
+  }
+  .gallery__caption {
+    padding: 10px;
+    font-size: 13px;
+  }
 }

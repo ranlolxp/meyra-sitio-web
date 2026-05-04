@@ -70,12 +70,18 @@
       'gallery.eyebrow': 'Galería',
       'gallery.title': 'Platillos con un toque especial',
       'gallery.subtitle': 'Recetas tradicionales con un toque contemporáneo.',
-      'dish.p01': 'Jugo de naranja natural',  'dish.p02': 'Latte de la casa',
+      'gallery.more': 'Ver más fotos',
+      'gallery.less': 'Ver menos fotos',
+      'dish.p01': 'Jugo de naranja natural',   'dish.p02': 'Latte de la casa',
       'dish.p03': 'Brunch del jardín',         'dish.p06': 'French Toast con fruta',
-      'dish.p07': 'Sándwich con chips de raíz', 'dish.p08': 'Sándwich artesanal',
-      'dish.p09': 'Avocado Toast con huevo',   'dish.p10': 'Avocado Toast con bacon',
-      'dish.p11': 'Avocado Toast del día',     'dish.p12': 'Desayuno Meyra',
-      'dish.p13': 'Chilaquiles rojos y verdes', 'dish.p14': 'French Toast tradicional',
+      'dish.p07': 'Sándwich con chips de raíz','dish.p12': 'Desayuno Meyra',
+      'dish.p13': 'Chilaquiles rojos y verdes',
+      'dish.g01': 'Avocado Toast especial',    'dish.g02': 'Omelette de la casa',
+      'dish.g03': 'Postre de frutos rojos',    'dish.g05': 'Avocado Toast',
+      'dish.g06': 'Chilaquiles con carne',     'dish.g08': 'Avocado Toast del patio',
+      'dish.g09': 'Omelette con ensalada',     'dish.g10': 'Smoothie de frutos rojos',
+      'dish.g11': 'Jugo verde',                'dish.g12': 'Pastel de chocolate',
+      'dish.g13': 'Pastel de chocolate entero',
       'testimonials.eyebrow': 'Lo que dicen',
       'testimonials.title': 'Historias de quienes nos visitan',
       'testimonials.subtitle': 'Reseñas reales de nuestros comensales en Google.',
@@ -142,12 +148,18 @@
       'gallery.eyebrow': 'Gallery',
       'gallery.title': 'Dishes with a special touch',
       'gallery.subtitle': 'Traditional recipes with a contemporary twist.',
-      'dish.p01': 'Fresh orange juice',       'dish.p02': 'House latte',
+      'gallery.more': 'See more photos',
+      'gallery.less': 'See fewer photos',
+      'dish.p01': 'Fresh orange juice',        'dish.p02': 'House latte',
       'dish.p03': 'Garden brunch',             'dish.p06': 'French Toast with fruit',
-      'dish.p07': 'Sandwich with root chips',  'dish.p08': 'Artisan sandwich',
-      'dish.p09': 'Avocado Toast with egg',    'dish.p10': 'Avocado Toast with bacon',
-      'dish.p11': 'Avocado Toast of the day',  'dish.p12': 'Meyra breakfast',
-      'dish.p13': 'Red & green chilaquiles',   'dish.p14': 'Classic French Toast',
+      'dish.p07': 'Sandwich with root chips',  'dish.p12': 'Meyra breakfast',
+      'dish.p13': 'Red & green chilaquiles',
+      'dish.g01': 'Signature avocado toast',   'dish.g02': 'House omelette',
+      'dish.g03': 'Berry dessert',             'dish.g05': 'Avocado toast',
+      'dish.g06': 'Chilaquiles with beef',     'dish.g08': 'Patio avocado toast',
+      'dish.g09': 'Omelette with salad',       'dish.g10': 'Berry smoothie',
+      'dish.g11': 'Green juice',               'dish.g12': 'Chocolate cake',
+      'dish.g13': 'Whole chocolate cake',
       'testimonials.eyebrow': 'What guests say',
       'testimonials.title': 'Stories from those who visit us',
       'testimonials.subtitle': 'Real reviews from our guests on Google.',
@@ -224,6 +236,7 @@
     });
 
     storage.set('meyra-lang', lang);
+    document.dispatchEvent(new CustomEvent('meyra:langchange', { detail: { lang } }));
   }
 
   // ────────────────────────────────────────
@@ -286,6 +299,97 @@
     });
   }
 
+  function setupGallery() {
+    const gallery = document.getElementById('menuGallery');
+    if (!gallery) return;
+
+    const toggle = document.getElementById('galleryToggle');
+    const items = Array.from(gallery.querySelectorAll('[data-gallery-item]'));
+    const extraItems = items.filter(item => item.classList.contains('gallery__item--extra'));
+    let expanded = false;
+
+    function currentLang() {
+      const saved = storage.get('meyra-lang');
+      return saved && I18N[saved] ? saved : detectInitialLang();
+    }
+
+    function syncExtraItems() {
+      const compactMode = window.innerWidth <= 1024;
+      extraItems.forEach(item => {
+        item.hidden = compactMode && !expanded;
+      });
+    }
+
+    function syncToggleLabel() {
+      if (!toggle) return;
+      const lang = currentLang();
+      toggle.textContent = expanded ? I18N[lang]['gallery.less'] : I18N[lang]['gallery.more'];
+      const compactMode = window.innerWidth <= 1024;
+      toggle.hidden = extraItems.length === 0 || !compactMode;
+      if (!compactMode) {
+        expanded = false;
+      }
+      syncExtraItems();
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        expanded = !expanded;
+        syncToggleLabel();
+      });
+      window.addEventListener('resize', syncToggleLabel);
+      document.addEventListener('meyra:langchange', syncToggleLabel);
+      syncToggleLabel();
+    }
+
+    const overlay = document.createElement('div');
+    overlay.className = 'gallery-modal-overlay';
+    overlay.innerHTML =
+      '<div class="gallery-modal" role="dialog" aria-modal="true" aria-label="Vista de imagen">' +
+        '<button type="button" class="gallery-modal__close" aria-label="Cerrar">&times;</button>' +
+        '<img class="gallery-modal__image" alt="" />' +
+        '<p class="gallery-modal__caption"></p>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    const image = overlay.querySelector('.gallery-modal__image');
+    const caption = overlay.querySelector('.gallery-modal__caption');
+    const closeBtn = overlay.querySelector('.gallery-modal__close');
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        image.removeAttribute('src');
+        image.alt = '';
+        caption.textContent = '';
+      }, 180);
+    }
+
+    function openModal(item) {
+      const img = item.querySelector('img');
+      const text = item.querySelector('.gallery__caption');
+      if (!img) return;
+      image.src = img.getAttribute('src') || '';
+      image.alt = img.alt || '';
+      caption.textContent = text ? text.textContent.trim() : img.alt || '';
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => openModal(item));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', event => {
+      if (event.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+  }
+
   // ────────────────────────────────────────
   // Inicio
   // ────────────────────────────────────────
@@ -294,6 +398,7 @@
     setupLanguageModal();
     setupLanguagePill();
     setupBurger();
+    setupGallery();
   });
 
 })();
