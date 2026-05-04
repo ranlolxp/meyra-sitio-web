@@ -1,0 +1,89 @@
+/* ============================================================
+   MEYRA — Nav: barra de navegación, hamburguesa, logo, lang pill
+   ============================================================ */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px clamp(20px, 4vw, 56px);
+  color: var(--c-coffee-900);
+  background: #e8d4aa;
+  border-bottom: 1px solid rgba(107, 66, 38, 0.13);
+}
+.site-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  height: 72px;
+  margin-left: 16px;
+}
+.site-nav__brand img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: none;
+}
+.site-nav__menu {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-coffee-800);
+}
+.site-nav__menu a { transition: opacity .15s; color: var(--c-coffee-800); }
+.site-nav__menu a:hover { opacity: 0.6; }
+.site-nav__icon { display: inline-flex; align-items: center; }
+.site-nav__socials { display: inline-flex; align-items: center; gap: 14px; }
+.site-nav__socials:hover a { opacity: 0.6; }
+.site-nav__socials a:hover { opacity: 0.6; }
+.site-nav__tools {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.lang-pill {
+  display: inline-flex;
+  background: rgba(107, 66, 38, 0.22);
+  border-radius: 999px;
+  padding: 3px;
+}
+.lang-pill button {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c-coffee-700);
+  background: transparent;
+  transition: all .15s;
+}
+.lang-pill button.is-active {
+  background: var(--c-coffee-700);
+  color: var(--c-cream-50);
+}
+
+.nav-burger {
+  display: none;
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: rgba(107,66,38,0.12);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 18px; height: 2px;
+  background: var(--c-coffee-800);
+  border-radius: 2px;
+  transition: transform .2s, opacity .2s;
+}

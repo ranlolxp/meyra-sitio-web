@@ -1,0 +1,119 @@
+/* ============================================================
+   MEYRA — Visítanos: mapa, tarjeta de reserva, horarios
+   ============================================================ */
+
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.map {
+  border-radius: 4px;
+  overflow: hidden;
+  height: 440px;
+  box-shadow: 0 24px 60px rgba(26,15,7,0.18);
+  background: var(--c-cream-200);
+}
+.map iframe {
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+/* Columna izquierda de Visítanos: espaciado uniforme entre todos los elementos */
+#contact .grid-2-1 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+#contact .grid-2-1 > div:first-child .eyebrow   { margin-bottom: 0; }
+#contact .grid-2-1 > div:first-child .section__title { margin-bottom: 0; }
+#contact .grid-2-1 > div:first-child .section__lead  { margin-top: -5px; }
+#contact .grid-2-1 > div:first-child .link-underline { margin-top: 8px; }
+
+.reserve-card {
+  background: var(--c-coffee-900);
+  color: var(--c-cream-50);
+  padding: 40px 36px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.reserve-card::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 160px; height: 160px;
+  border-radius: 999px;
+  background: rgba(245,236,216,0.04);
+}
+.reserve-card .eyebrow { margin-bottom: 0; }
+.reserve-card__title {
+  font-size: clamp(26px, 3vw, 34px);
+  margin-bottom: 0;
+  color: var(--c-cream-50);
+  position: relative;
+}
+.reserve-card__lead {
+  color: var(--c-cream-200);
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  position: relative;
+}
+
+.reserve-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: rgba(245,236,216,0.06);
+  margin-bottom: 0;
+  transition: background .15s;
+  color: var(--c-cream-50);
+  position: relative;
+}
+.reserve-row:hover { background: rgba(245,236,216,0.12); }
+.reserve-row__icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.reserve-row__icon--wa    { background: var(--c-whatsapp); }
+.reserve-row__icon--phone { background: var(--c-coral); }
+.reserve-row__body { flex: 1; display: flex; flex-direction: column; }
+.reserve-row__label { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+.reserve-row__desc  { font-size: 12px; opacity: 0.7; }
+.reserve-row__arrow { font-size: 18px; opacity: 0.7; }
+
+.reserve-card__hours {
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(245,236,216,0.15);
+  position: relative;
+}
+.hours__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--c-cream-200);
+  opacity: 0.85;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.reserve-card__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.reserve-card__hours .hours__label { margin-bottom: 0; }
+.hours__line { font-size: 13px; }
+.hours__line--muted { opacity: 0.6; font-size: 12px; margin-top: 0; }

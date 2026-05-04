@@ -1,0 +1,220 @@
+/* ============================================================
+   MEYRA — Base: variables, reset, layout helpers, componentes globales
+   ============================================================ */
+
+:root {
+  /* Paleta tierra cálida */
+  --c-coffee-950: #1a0f07;
+  --c-coffee-900: #2b1a10;
+  --c-coffee-800: #3d2818;
+  --c-coffee-700: #4a2e1f;
+  --c-coffee-600: #6b4226;
+  --c-coffee-500: #8b5a37;
+  --c-coffee-400: #a67b56;
+  --c-cream-50:   #faf6ec;
+  --c-cream-100:  #f5ecd8;
+  --c-cream-200:  #ede0c0;
+  --c-cream-300:  #e0cea4;
+  --c-olive-700:  #6b7a3d;
+  --c-olive-500:  #8a9651;
+  --c-coral:      #c0392b;
+  --c-coral-dark: #8f2a1f;
+  --c-whatsapp:   #25D366;
+
+  --c-ink:        var(--c-coffee-900);
+  --c-paper:      var(--c-cream-50);
+
+  /* Tipografía */
+  --f-serif:   'Cormorant Garamond', Georgia, serif;
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-sans:    'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --f-script:  'Caveat', cursive;
+
+  /* Espaciado */
+  --s-section: clamp(28px, 3vw, 48px);
+  --s-container: 1280px;
+}
+
+/* ──── Reset suave ──── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 0; }
+body {
+  margin: 0;
+  font-family: var(--f-sans);
+  color: var(--c-ink);
+  background: var(--c-paper);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; padding: 0; }
+ul { list-style: none; padding: 0; margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--f-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+p { margin: 0; text-wrap: pretty; }
+
+/* Foco accesible */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--c-olive-700);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ──── Contenedores y layout helpers ──── */
+.container {
+  max-width: var(--s-container);
+  margin: 0 auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+.container--narrow { max-width: 720px; }
+.center { text-align: center; }
+
+.section {
+  padding-block: var(--s-section);
+  scroll-margin-top: 93px;
+}
+.section--cream     { background: var(--c-cream-50); }
+.section--cream-100 { background: var(--c-cream-100); }
+.section--coffee    { background: var(--c-coffee-900); color: var(--c-cream-50); }
+
+.section__header { margin-bottom: 24px; }
+.section__title {
+  font-size: clamp(32px, 5vw, 52px);
+  margin-bottom: 16px;
+}
+.section__title--xl {
+  font-size: clamp(36px, 6vw, 64px);
+  margin-bottom: 20px;
+}
+.section__lead {
+  color: var(--c-coffee-600);
+  font-size: 16px;
+}
+.section__intro {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.7;
+  color: var(--c-coffee-600);
+}
+.section--coffee .section__intro,
+.section--coffee .section__lead { color: var(--c-cream-200); opacity: 0.9; }
+
+/* ──── Eyebrow (etiqueta de sección) ──── */
+.eyebrow {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 19px;
+  letter-spacing: 0.22em;
+  text-transform: none;
+  color: var(--c-coffee-700);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.eyebrow span:first-child,
+.eyebrow span:last-child {
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--c-coffee-600);
+  opacity: 0.6;
+  font-size: 0;
+  flex-shrink: 0;
+}
+.eyebrow--light { color: var(--c-cream-200); }
+.eyebrow--light span:first-child,
+.eyebrow--light span:last-child { background: var(--c-cream-200); opacity: 0.45; }
+.kicker {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(24px, 2.8vw, 34px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-coffee-800);
+  font-weight: 600;
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+/* ──── Botones ──── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--coral { background: var(--c-coral); color: #fff; }
+.btn--coral:hover { background: var(--c-coral-dark); }
+.btn--ghost {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn--ghost:hover { background: rgba(255,255,255,0.22); }
+.btn--cream {
+  background: var(--c-cream-50);
+  color: var(--c-coffee-900);
+}
+.btn--coffee {
+  background: var(--c-coffee-900);
+  color: var(--c-cream-50);
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.btn--primary {
+  background: var(--c-coffee-700);
+  color: var(--c-cream-50);
+  padding: 12px 18px;
+  border-radius: 10px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 14px;
+}
+.btn--secondary {
+  background: transparent;
+  color: var(--c-coffee-700);
+  box-shadow: inset 0 0 0 1.5px var(--c-coffee-700);
+  padding: 12px 18px;
+  border-radius: 10px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 14px;
+}
+
+/* ──── Link subrayado tipo "abrir en maps" ──── */
+.link-underline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--c-coffee-700);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 2px;
+}

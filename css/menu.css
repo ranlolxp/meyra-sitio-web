@@ -1,0 +1,88 @@
+/* ============================================================
+   MEYRA — Menú: grid, imagen, ornamento, hint, ajustes about
+   ============================================================ */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.menu-grid__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.menu-grid__img {
+  margin: 0;
+  position: relative;
+  z-index: 0;
+}
+.menu-grid__img img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: 30% center;
+  display: block;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.menu-grid__img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: radial-gradient(ellipse at center, transparent 38%, rgba(43, 26, 16, 0.48) 100%);
+  box-shadow: inset 0 0 0 1px rgba(210, 175, 110, 0.16);
+  pointer-events: none;
+  z-index: 2;
+}
+#menu .eyebrow          { margin-bottom: 0; }
+#menu .section__title   { margin-bottom: 0; }
+#menu .section__intro   { margin: 0; }
+#about .section__header { margin-bottom: 40px; }
+#about .section__intro {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(16px, 2vw, 19px);
+}
+.about-ornament {
+  display: flex;
+  align-items: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.about-ornament::before,
+.about-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+}
+.about-ornament::before {
+  background: linear-gradient(to right, transparent, var(--c-coffee-600) 15%);
+  margin-right: 18px;
+}
+.about-ornament::after {
+  background: linear-gradient(to left, transparent, var(--c-coffee-600) 15%);
+  margin-left: 18px;
+}
+.about-ornament img {
+  height: 24px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+}
+.about-ornament--top    { margin-bottom: 14px; }
+.about-ornament--bottom { margin-top: 14px; }
+.hint {
+  font-size: 12px;
+  opacity: 0.72;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
