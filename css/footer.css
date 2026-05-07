@@ -53,6 +53,13 @@
   transition: transform .3s;
 }
 .ig-grid li:hover img { transform: scale(1.05); }
+.ig-grid .gallery__caption {
+  opacity: 0;
+  font-size: 12px;
+  padding: 8px;
+  background: linear-gradient(180deg, transparent 50%, rgba(26,15,7,0.48) 100%);
+}
+.ig-grid li:hover .gallery__caption { opacity: 1; }
 
 .site-footer {
   background: var(--c-coffee-950);

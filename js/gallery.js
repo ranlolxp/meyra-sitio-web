@@ -18,9 +18,15 @@ function setupGallery() {
 
   function syncExtraItems() {
     var compactMode = window.innerWidth <= 1024;
-    extraItems.forEach(function(item) {
-      item.hidden = compactMode && !expanded;
-    });
+    if (compactMode) {
+      if (expanded) {
+        gallery.classList.add('is-expanded');
+      } else {
+        gallery.classList.remove('is-expanded');
+      }
+    } else {
+      gallery.classList.remove('is-expanded');
+    }
   }
 
   function syncToggleLabel() {
@@ -35,10 +41,25 @@ function setupGallery() {
     syncExtraItems();
   }
 
+  var scrollYBeforeExpand = 0;
+
   if (toggle) {
     toggle.addEventListener('click', function() {
-      expanded = !expanded;
-      syncToggleLabel();
+      if (expanded) {
+        // 1. Fade-out suave — layout no se mueve
+        extraItems.forEach(function(item) { item.classList.add('is-fading'); });
+        setTimeout(function() {
+          // 2. Colapsar y saltar instantáneo — nadie ve el salto porque las fotos son transparentes
+          extraItems.forEach(function(item) { item.classList.remove('is-fading'); });
+          expanded = false;
+          syncToggleLabel();
+          window.scrollTo(0, scrollYBeforeExpand);
+        }, 500);
+      } else {
+        scrollYBeforeExpand = window.scrollY;
+        expanded = true;
+        syncToggleLabel();
+      }
     });
     window.addEventListener('resize', syncToggleLabel);
     document.addEventListener('meyra:langchange', syncToggleLabel);

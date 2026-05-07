@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="css/galeria.css" />
   <link rel="stylesheet" href="css/resenas.css" />
   <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/responsive.css?v=3" />
 
   <!-- Schema.org structured data — para que Google entienda que es un restaurante -->
   <script type="application/ld+json">
@@ -167,6 +167,22 @@
           <p class="hero__intro" data-i18n="hero.intro">
             En el corazón de La Paz, un espacio cálido donde los aromas del café recién molido y la comida casera se mezclan con el encanto de una cabaña rústica.
           </p>
+
+          <div class="hero__cta-row">
+            <a href="https://www.google.com/maps/search/MEYRA+Caf%C3%A9+y+Restaurante/@24.1475197,-110.3343323,17z"
+               target="_blank"
+               rel="noreferrer"
+               class="btn btn--primary"
+               data-i18n="hero.btnMaps">Cómo llegar</a>
+            <a href="#"
+               class="btn btn--secondary"
+               id="heroWhatsApp"
+               data-href-lang="wa"
+               target="_blank"
+               rel="noreferrer"
+               data-i18n="hero.btnReserve">Reservar</a>
+          </div>
+
         </div>
       </div>
 
@@ -180,6 +196,7 @@
           <div class="hero__schedule-text">
             <span class="hero__schedule-label" data-i18n="schedule.label">Horario de atención</span>
             <span class="hero__schedule-value" data-i18n="hero.hours">Lun – Sáb · 7:30 AM – 2:30 PM</span>
+            <span id="heroStatus" class="hero__status"></span>
           </div>
         </div>
       </div>
@@ -310,13 +327,13 @@
             <p data-i18n="about.storyBody">
               MEYRA nació de un ideal sencillo: crear un lugar que se sienta como casa. Usamos carnes locales orgánicas y preparamos todo de forma natural — mermeladas, chiles curtidos y pepinillos. Cada platillo está pensado en tu bienestar, con recetas que combinan tradición y frescura.
             </p>
-            <blockquote class="about-block__closing" data-i18n="about.closing">
-              MEYRA será ese lugar al que siempre quieras volver.
-            </blockquote>
           </div>
           <figure class="about-block__media">
             <img src="assets/img/tortillas-ingredientes.jpg" alt="Tortillas e ingredientes naturales" />
           </figure>
+          <blockquote class="about-block__closing" data-i18n="about.closing">
+            MEYRA será ese lugar al que siempre quieras volver.
+          </blockquote>
         </div>
       </div>
     </section>
@@ -331,18 +348,20 @@
         </header>
 
         <ul class="gallery" id="menuGallery">
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-06.jpg" alt="Chilaquiles con carne" /><span class="gallery__caption" data-i18n="dish.g06">Chilaquiles con carne</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p06.jpg" alt="French Toast con fruta" /><span class="gallery__caption" data-i18n="dish.p06">French Toast con fruta</span></li>
+          <li class="gallery__item gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/chilaquiles-rojos.jpg" alt="Chilaquiles rojos con carne" /><span class="gallery__caption" data-i18n="dish.new.chilaquiles-rojos">Chilaquiles rojos con carne</span></li>
           <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p07.jpg" alt="Sándwich con chips de raíz" /><span class="gallery__caption" data-i18n="dish.p07">Sándwich con chips de raíz</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p03.jpg" alt="Brunch del jardín" /><span class="gallery__caption" data-i18n="dish.p03">Brunch del jardín</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p12.jpg" alt="Desayuno Meyra" /><span class="gallery__caption" data-i18n="dish.p12">Desayuno Meyra</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-02.jpg" alt="Omelette de la casa" /><span class="gallery__caption" data-i18n="dish.g02">Omelette de la casa</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-10.jpg" alt="Smoothie de frutos rojos" /><span class="gallery__caption" data-i18n="dish.g10">Smoothie de frutos rojos</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/sandwish-queso.jpg" alt="Sándwich de queso" /><span class="gallery__caption" data-i18n="dish.new.sandwish-queso">Sándwich de queso</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p12.jpg" alt="Pan Francés" /><span class="gallery__caption" data-i18n="dish.p12">Pan Francés</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja.jpg" alt="Jugo de naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja">Jugo de naranja</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/afogato.jpg" alt="Affogato" /><span class="gallery__caption" data-i18n="dish.new.affogato">Affogato</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-02.jpg" alt="Omelette de Espinacas y Queso" /><span class="gallery__caption" data-i18n="dish.g02">Omelette de Espinacas y Queso</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/hot-cakes.jpg" alt="Hot cakes" /><span class="gallery__caption" data-i18n="dish.new.hot-cakes">Hot cakes</span></li>
           <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-11.jpg" alt="Jugo verde" /><span class="gallery__caption" data-i18n="dish.g11">Jugo verde</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-13.jpg" alt="Pastel de chocolate entero" /><span class="gallery__caption" data-i18n="dish.g13">Pastel de chocolate entero</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-03.jpg" alt="Postre de frutos rojos" /><span class="gallery__caption" data-i18n="dish.g03">Postre de frutos rojos</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-01.jpg" alt="Avocado Toast especial" /><span class="gallery__caption" data-i18n="dish.g01">Avocado Toast especial</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/rol-canela.jpg" alt="Rol de canela" /><span class="gallery__caption" data-i18n="dish.new.rol-canela">Rol de canela</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-01.jpg" alt="Avocado Toast" /><span class="gallery__caption" data-i18n="dish.g01">Avocado Toast</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/limonada-cafe.jpg" alt="Limonada café" /><span class="gallery__caption" data-i18n="dish.new.limonada-cafe">Limonada café</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja-cafe.jpg" alt="Café y Jugo de Naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja-cafe">Café y Jugo de Naranja</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/golden-milk.jpg" alt="Leche Dorada" /><span class="gallery__caption" data-i18n="dish.new.golden-milk">Leche Dorada</span></li>
         </ul>
         <div class="gallery__actions">
           <button type="button" class="btn btn--coffee gallery__toggle" id="galleryToggle" data-i18n="gallery.more">Ver más fotos</button>
@@ -784,12 +803,12 @@
         </div>
 
         <ul class="ig-grid" aria-label="Vista previa de Instagram">
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-03.jpg" alt="Postre de frutos rojos" /></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-09.jpg" alt="Omelette con ensalada" /></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-12.jpg" alt="Pastel de chocolate" /></li>
-          <li><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja natural" /></li>
-          <li><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles rojos y verdes" /></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-08.jpg" alt="Avocado Toast del patio" /></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new/rol-canela.jpg" alt="Rol de canela" style="object-position:center bottom" /><span class="gallery__caption" data-i18n="ig.rol-canela">Rol de canela</span></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-09.jpg" alt="Omelette de Espinacas y Queso" style="object-position:center bottom" /><span class="gallery__caption" data-i18n="ig.omelette">Omelette de Espinacas y Queso</span></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new/afogato-2.jpg" alt="Affogato" style="object-position:center 60%" /><span class="gallery__caption" data-i18n="ig.affogato">Affogato</span></li>
+          <li><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja" /><span class="gallery__caption" data-i18n="ig.jugo-naranja">Jugo de naranja</span></li>
+          <li><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles Rojos con Huevo" /><span class="gallery__caption" data-i18n="ig.chilaquiles">Chilaquiles Rojos con Huevo</span></li>
+          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-08.jpg" alt="Smoothie de Fresa" /><span class="gallery__caption" data-i18n="ig.smoothie">Smoothie de Fresa</span></li>
         </ul>
       </div>
     </section>
@@ -833,6 +852,7 @@
   <script src="js/nav.js" defer></script>
   <script src="js/carousel.js" defer></script>
   <script src="js/gallery.js" defer></script>
+  <script src="js/hero.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -4,19 +4,35 @@
    ============================================================ */
 
 /* ════════════════════════════════════════
+   RESPONSIVE — Pantallas cortas en desktop (alto ≤820px)
+   Evita que el logo cuadrado desborde el panel del hero
+   ════════════════════════════════════════ */
+@media (max-height: 820px) and (min-width: 1025px) {
+  .hero__logo { width: clamp(130px, 16vw, 200px); }
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — Laptop intermedio (1200px–1440px)
+   ════════════════════════════════════════ */
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .hero__cta-row .btn { padding: 14px 28px; font-size: 15px; }
+}
+
+/* ════════════════════════════════════════
    RESPONSIVE — Tablet (≤1024px)
    ════════════════════════════════════════ */
 @media (max-width: 1024px) {
   /* Hero: apilar imagen arriba, panel abajo */
   .hero {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 128px;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
       "media"
       "panel"
       "lower";
     height: auto;
     min-height: 100vh;
+    min-height: 100dvh;
   }
   .hero__media {
     height: 45vh;
@@ -29,9 +45,10 @@
   .menu-grid__img img  { height: 300px; }
   .grid-2-1            { grid-template-columns: 1fr; gap: 40px; }
   .reserve-card        { padding: 36px 28px; }
-  .about-block         { grid-template-columns: 1fr; gap: 32px; margin-bottom: 44px; }
+  .about-block         { display: flex; flex-direction: column; gap: 32px; margin-bottom: 44px; }
+  .about-block__media  { width: 100%; }
   .about-block--reverse .about-block__media { order: -1; }
-  .about-block__media img { height: 380px; }
+  .about-block__media img { height: 380px; width: 100%; }
   .about-block:first-of-type .about-block__media img {
     height: auto;
     object-fit: contain;
@@ -48,11 +65,14 @@
   .gallery__actions    { display: flex; }
   .gallery__item--extra { display: none; }
   .gallery.is-expanded .gallery__item--extra { display: block; }
+  .gallery__item--extra.is-fading { display: block; opacity: 0; transition: opacity 0.5s ease; }
+  .gallery.is-expanded .gallery__item--extra.is-fading { opacity: 0; }
   .social-cards        { grid-template-columns: 1fr; gap: 20px; }
   .ig-grid             { grid-template-columns: repeat(4, 1fr); }
   .site-footer__grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
   .site-nav__menu      { gap: 18px; }
   .hero__intro         { max-width: 86%; }
+  .hero__cta-row .btn  { padding: 13px 24px; font-size: 14px; }
 }
 
 /* ════════════════════════════════════════
@@ -118,12 +138,14 @@
   }
   .hero__media { height: 26vh; min-height: 170px; max-height: 280px; }
   .hero__logo { width: clamp(130px, 42vw, 190px); }
-  .hero__panel { padding: 28px 24px 20px; }
-  .hero__intro { max-width: 90%; font-size: 14px; }
-  .hero__lower { padding: 0 20px; }
+  .hero__panel { padding-top: 0; padding-bottom: 0; }
+  .hero__content { padding-top: 20px; padding-bottom: 10px; }
+  .hero__intro { max-width: 90%; font-size: 14px; margin-bottom: 10px; }
+  .hero__cta-row { margin-top: 12px; }
+  .hero__lower { padding: 10px 20px; }
   .hero__schedule-label { font-size: 11px; letter-spacing: 0.10em; }
   .hero__schedule-label::before,
-  .hero__schedule-label::after { flex: 0 0 16px; height: 4px; }
+  .hero__schedule-label::after { width: 16px; height: 4px; }
   .hero__actions { gap: 10px; }
   .hero__actions .btn { padding: 12px 18px; font-size: 12px; }
   .hero__schedule { padding: 12px 16px; gap: 10px; }
@@ -151,25 +173,33 @@
     margin-top: 0;
     max-width: min(300px, calc(100% - 28px));
   }
-  .about-block:first-of-type .about-block__media img {
-    height: auto;
-    object-fit: contain;
-  }
-  .about-block__media img { height: 280px; }
+  .about-block__media img { height: 280px; width: 100%; box-shadow: none; border-radius: 2px; }
+  .about-block:first-of-type .about-block__media img { height: auto; object-fit: contain; }
   .pillars { grid-template-columns: 1fr; gap: 4px; }
 
   /* Galería */
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .gallery__caption { opacity: 1; padding: 12px; font-size: 14px; }
-  .gallery__caption { background: linear-gradient(180deg, transparent 50%, rgba(26,15,7,0.9) 100%); }
+  .gallery__caption { background: linear-gradient(180deg, transparent 50%, rgba(26,15,7,0.68) 100%); }
   .gallery__item { aspect-ratio: 1 / 0.82; }
 
-  /* Mapa */
-  .map { height: 300px; }
+  /* Visítanos: reserva primero, mapa segundo */
+  #contact .grid-2-1        { display: flex; flex-direction: column; }
+  #contact .grid-2-1 aside  { order: -1; }
 
-  /* Reserve card */
-  .reserve-card { padding: 28px 20px; }
-  .reserve-row__desc { font-size: 11px; }
+  /* Mapa compacto */
+  .map { height: 200px; }
+
+  /* Tarjeta de reserva compacta */
+  .reserve-card             { padding: 20px 16px; gap: 10px; }
+  .reserve-card__title      { font-size: 20px; }
+  .reserve-card__lead       { font-size: 13px; }
+  .reserve-row              { padding: 12px 14px; gap: 10px; }
+  .reserve-row__icon        { width: 34px; height: 34px; border-radius: 8px; }
+  .reserve-row__icon svg    { width: 16px; height: 16px; }
+  .reserve-row__label       { font-size: 14px; }
+  .reserve-row__desc        { font-size: 11px; }
+  .reserve-card__hours      { padding-top: 12px; gap: 3px; }
 
   /* Reviews carrusel */
   .reviews__header { flex-direction: column; align-items: flex-start; }
@@ -190,83 +220,130 @@
   .site-footer__legal { flex-direction: column; align-items: center; text-align: center; }
 }
 
-/* Celulares: priorizar lectura antes de imágenes */
+/* Celulares: composición editorial en Nosotros */
 @media (max-width: 600px) {
   #about .section__header {
-    margin-bottom: 22px;
+    margin-bottom: 8px;
   }
 
   #about .section__title {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   #about .section__intro {
     font-size: 15px;
-    line-height: 1.62;
+    line-height: 1.55;
   }
 
   .about-block {
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    margin-bottom: 30px;
+    gap: 14px;
+    margin-bottom: 20px;
   }
 
+  /* Bloque 1: texto primero, imagen protagonista después */
   .about-block:first-of-type .about-block__text {
     order: 1;
+    gap: 10px;
   }
 
   .about-block:first-of-type .about-block__media {
     order: 2;
   }
 
-  .about-block--reverse .about-block__media {
-    order: 2;
+  .about-block:first-of-type .about-block__media img {
+    height: auto;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: none;
+  }
+
+  /* Quote: compacta y proporcional */
+  .about-block:first-of-type .about-block__quote {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin-top: 0;
+    max-width: min(52%, calc(100% - 20px));
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  /* Bloque 2: texto → imagen → closing (solo en mobile) */
+  .about-block--reverse {
+    flex-wrap: wrap;
   }
 
   .about-block--reverse .about-block__text {
     order: 1;
+    width: 100%;
     padding-top: 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
   }
 
-  .about-block__media img {
-    height: 220px;
+  .about-block--reverse .about-block__closing {
+    order: 3;
+    width: 100%;
+    margin-top: 14px;
   }
-  .about-block:first-of-type .about-block__media img {
-    height: auto;
+
+  .about-block--reverse .about-block__media {
+    order: 2;
+    width: 100%;
+  }
+
+  .about-block--reverse .about-block__media img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center 40%;
+    box-shadow: none;
   }
 
   .about-block__text {
-    gap: 14px;
+    gap: 10px;
   }
 
   .about-block__text .kicker {
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.13em;
   }
 
   .about-block__lead {
-    font-size: 24px;
+    font-size: 21px;
     line-height: 1.18;
   }
 
+  .about-block__text p {
+    font-size: 15px;
+    line-height: 1.52;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 12px;
+  }
+
   .pillars li {
-    padding: 12px 0;
+    padding: 9px 0;
   }
 
   .pillars li strong {
-    font-size: 18px;
-    margin-bottom: 3px;
+    font-size: 15px;
+    margin-bottom: 2px;
   }
 
   .pillars li span {
-    font-size: 14px;
-    line-height: 1.45;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .about-block__closing {
-    font-size: 23px;
-    line-height: 1.32;
+    font-size: 20px;
+    line-height: 1.3;
   }
 }
 

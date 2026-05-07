@@ -5,11 +5,12 @@
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-rows: 1fr 128px;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
     "panel media"
     "lower lower";
-  height: calc(100vh - 93px);
+  height: calc(100vh - var(--nav-height, 93px));
+  height: calc(100dvh - var(--nav-height, 93px));
   min-height: 540px;
   background: var(--c-coffee-900);
   color: var(--c-cream-50);
@@ -48,7 +49,7 @@
   position: relative;
   z-index: 1;
   animation: fadeUp .8s ease-out;
-  padding: 20px clamp(8px, 1.2vw, 14px);
+  padding: clamp(12px, 3vh, 40px) clamp(8px, 1.2vw, 14px) clamp(8px, 2vh, 20px);
   width: 100%;
   gap: 0;
 }
@@ -97,7 +98,7 @@
   width: 100%;
   background: #5C3A1E;
   border-top: 1px solid rgba(245, 236, 216, 0.15);
-  padding: 0 48px;
+  padding: 24px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,9 +129,9 @@
   gap: 9px;
 }
 .hero__schedule-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: block;
+  align-self: stretch;
+  text-align: center;
   font-family: var(--f-sans);
   font-style: normal;
   font-size: 13px;
@@ -143,15 +144,19 @@
 .hero__schedule-label::before,
 .hero__schedule-label::after {
   content: '';
-  display: block;
-  flex: 0 0 52px;
+  display: inline-block;
+  width: 52px;
   height: 5px;
+  vertical-align: middle;
   background: #A0BE5A;
+  letter-spacing: 0;
 }
 .hero__schedule-label::before {
+  margin-right: 12px;
   clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
 .hero__schedule-label::after {
+  margin-left: 12px;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
@@ -230,4 +235,36 @@
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Botones CTA dentro del panel izquierdo ── */
+.hero__cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__cta-row .btn--secondary {
+  background: var(--c-cream-200);
+  color: var(--c-coffee-900);
+  box-shadow: none;
+}
+.hero__cta-row .btn--secondary:hover {
+  background: var(--c-cream-100);
+}
+
+/* ── Estado abierto/cerrado en franja inferior ── */
+.hero__status {
+  font-size: 0.9rem;
+  text-align: center;
+}
+.hero__status--open {
+  color: #A0BE5A;
+  font-weight: 600;
+}
+.hero__status--closed {
+  color: var(--c-cream-200);
+  opacity: 0.85;
 }
