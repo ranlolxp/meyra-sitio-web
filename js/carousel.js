@@ -130,10 +130,11 @@ function setupCarousel() {
 
   /* Swipe táctil */
   var touchStartX = 0;
-  track.addEventListener('touchstart', function(e) {
+  var swipeTarget = track.parentElement || track;
+  swipeTarget.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
   }, { passive: true });
-  track.addEventListener('touchend', function(e) {
+  swipeTarget.addEventListener('touchend', function(e) {
     var diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
       if (diff > 0) { next(); } else { goTo(current - 1 < 0 ? total - perView : current - 1); }
