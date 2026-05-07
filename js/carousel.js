@@ -128,6 +128,19 @@ function setupCarousel() {
     if (card) card.addEventListener('click', function() { openModal(card); });
   });
 
+  /* Swipe táctil */
+  var touchStartX = 0;
+  track.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) { next(); } else { goTo(current - 1 < 0 ? total - perView : current - 1); }
+      startTimer();
+    }
+  }, { passive: true });
+
   /* Responsive con debounce */
   var resizeTimeout;
   window.addEventListener('resize', function() {
