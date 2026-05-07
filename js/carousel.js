@@ -128,15 +128,23 @@ function setupCarousel() {
     if (card) card.addEventListener('click', function() { openModal(card); });
   });
 
-  /* Swipe táctil */
+  /* Swipe táctil — compatible con Safari iOS */
   var touchStartX = 0;
+  var touchStartY = 0;
   var swipeTarget = track.parentElement || track;
   swipeTarget.addEventListener('touchstart', function(e) {
     touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
   }, { passive: true });
+  swipeTarget.addEventListener('touchmove', function(e) {
+    var dx = Math.abs(e.touches[0].clientX - touchStartX);
+    var dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dx > dy && dx > 8) e.preventDefault();
+  }, { passive: false });
   swipeTarget.addEventListener('touchend', function(e) {
     var diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
+    var dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    if (Math.abs(diff) > 40 && Math.abs(diff) > dy) {
       if (diff > 0) { next(); } else { goTo(current - 1 < 0 ? total - perView : current - 1); }
       startTimer();
     }
