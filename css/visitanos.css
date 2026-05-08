@@ -25,6 +25,23 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  background: var(--c-cream-300);
+  padding: var(--s-section) clamp(20px, 4vw, 48px);
+  margin-top: calc(var(--s-section) * -1);
+  margin-bottom: calc(var(--s-section) * -1);
+  margin-left: calc(clamp(20px, 4vw, 48px) * -1);
+}
+
+#contact .reserve-card {
+  background: #5C3A1E;
+  border-radius: 0;
+  margin-top: calc(var(--s-section) * -1);
+  margin-bottom: calc(var(--s-section) * -1);
+  margin-right: calc(clamp(20px, 4vw, 48px) * -1);
+  padding-top: var(--s-section);
+  padding-bottom: var(--s-section);
+  padding-inline: 36px;
+  align-self: stretch;
 }
 #contact .grid-2-1 > div:first-child .eyebrow   { margin-bottom: 0; }
 #contact .grid-2-1 > div:first-child .section__title { margin-bottom: 0; }
