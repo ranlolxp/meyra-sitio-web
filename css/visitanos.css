@@ -21,27 +21,6 @@
 }
 
 /* Columna izquierda de Visítanos: espaciado uniforme entre todos los elementos */
-.contact-grid-fullbleed {
-  width: 100%;
-  max-width: 100%;
-  gap: 0;
-}
-
-.contact-grid-fullbleed > div:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  background: var(--c-cream-300);
-  padding: var(--s-section) clamp(20px, 6vw, 80px);
-  max-width: 720px;
-  margin-left: auto;
-}
-
-.contact-grid-fullbleed > aside {
-  background: #5C3A1E;
-  padding: var(--s-section) clamp(20px, 6vw, 80px);
-}
-
 #contact .grid-2-1 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -138,4 +117,3 @@
 .reserve-card__hours .hours__label { margin-bottom: 0; }
 .hours__line { font-size: 13px; }
 .hours__line--muted { opacity: 0.6; font-size: 12px; margin-top: 0; }
-
