@@ -17,6 +17,7 @@
   --c-cream-300:  #e0cea4;
   --c-olive-700:  #6b7a3d;
   --c-olive-500:  #8a9651;
+  --c-sage:       #e2ead6;
   --c-coral:      #c0392b;
   --c-coral-dark: #8f2a1f;
   --c-whatsapp:   #25D366;
@@ -37,7 +38,7 @@
 
 /* ──── Reset suave ──── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height, 93px); }
 body {
   margin: 0;
   font-family: var(--f-sans);
@@ -80,10 +81,10 @@ a:focus-visible, button:focus-visible {
 
 .section {
   padding-block: var(--s-section);
-  scroll-margin-top: 93px;
 }
 .section--cream     { background: var(--c-cream-50); }
 .section--cream-100 { background: var(--c-cream-100); }
+.section--sage      { background: var(--c-sage); }
 .section--coffee    { background: var(--c-coffee-900); color: var(--c-cream-50); }
 
 .section__header { margin-bottom: 24px; }

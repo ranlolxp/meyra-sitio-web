@@ -126,10 +126,10 @@
 
     <nav class="site-nav__menu" aria-label="Navegación principal">
       <a href="#top"       data-i18n="nav.home">Inicio</a>
-      <a href="#contact"   data-i18n="nav.visit">Visítanos</a>
       <a href="#menu"      data-i18n="nav.menu">Menú</a>
-      <a href="#about"     data-i18n="nav.about">Nosotros</a>
+      <a href="#contact"   data-i18n="nav.visit">Visítanos</a>
       <a href="#gallery"   data-i18n="nav.gallery">Galería</a>
+      <a href="#about"     data-i18n="nav.about">Nosotros</a>
       <a href="#reviews"   data-i18n="nav.reviews">Reseñas</a>
       <span class="site-nav__socials">
         <a href="#instagram" class="site-nav__icon" aria-label="Instagram" rel="noopener">
@@ -153,7 +153,6 @@
   </header>
 
   <main>
-
     <!-- ═══════════ HERO ═══════════ -->
     <section class="hero" aria-label="Presentación">
 
@@ -202,9 +201,28 @@
       </div>
 
     </section>
-
+    <!-- ═══════════ MENÚ CTA ═══════════ -->
+    <section id="menu" class="section section--cream-100">
+      <div class="container menu-grid">
+        <div class="menu-grid__text">
+          <p class="eyebrow"><span>·</span><span data-i18n="menu.eyebrow">Nuestro menú</span><span>·</span></p>
+          <h2 class="section__title section__title--xl" data-i18n="menu.title">Consulta nuestra carta completa</h2>
+          <p class="section__intro" data-i18n="menu.subtitle">
+            Desayunos, almuerzos, bebidas y postres — todo preparado con ingredientes naturales.
+          </p>
+          <a class="btn btn--coffee" id="menuLink" href="assets/menu/menu-meyra-es.pdf" target="_blank" rel="noreferrer">
+            <span data-i18n="menu.view">Ver menú en PDF</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="hint" data-i18n="menu.hint">Se abrirá el menú en español</p>
+        </div>
+        <figure class="menu-grid__img">
+          <img src="assets/img/menu-ambiente.jpg" alt="Bebida refrescante con la carta MEYRA" />
+        </figure>
+      </div>
+    </section>
     <!-- ═══════════ UBICACIÓN + RESERVA ═══════════ -->
-    <section id="contact" class="section section--cream">
+    <section id="contact" class="section section--sage">
       <div class="container grid-2-1">
         <div>
           <p class="eyebrow"><span>·</span><span data-i18n="location.eyebrow">Visítanos</span><span>·</span></p>
@@ -263,28 +281,36 @@
         </aside>
       </div>
     </section>
+    <!-- ═══════════ GALERÍA ═══════════ -->
+    <section id="gallery" class="section section--cream">
+      <div class="container">
+        <header class="section__header center">
+          <p class="eyebrow"><span>·</span><span data-i18n="gallery.eyebrow">Galería</span><span>·</span></p>
+          <h2 class="section__title section__title--xl" data-i18n="gallery.title">Platillos con un toque especial</h2>
+          <p class="section__lead" data-i18n="gallery.subtitle">Recetas tradicionales con un toque contemporáneo.</p>
+        </header>
 
-    <!-- ═══════════ MENÚ CTA ═══════════ -->
-    <section id="menu" class="section section--coffee">
-      <div class="container menu-grid">
-        <div class="menu-grid__text">
-          <p class="eyebrow eyebrow--light"><span>·</span><span data-i18n="menu.eyebrow">Nuestro menú</span><span>·</span></p>
-          <h2 class="section__title section__title--xl" data-i18n="menu.title">Consulta nuestra carta completa</h2>
-          <p class="section__intro" data-i18n="menu.subtitle">
-            Desayunos, almuerzos, bebidas y postres — todo preparado con ingredientes naturales.
-          </p>
-          <a class="btn btn--cream" id="menuLink" href="assets/menu/menu-meyra-es.pdf" target="_blank" rel="noreferrer">
-            <span data-i18n="menu.view">Ver menú en PDF</span>
-            <span aria-hidden="true">→</span>
-          </a>
-          <p class="hint" data-i18n="menu.hint">Se abrirá el menú en español</p>
+        <ul class="gallery" id="menuGallery">
+          <li class="gallery__item gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/chilaquiles-rojos.jpg" alt="Chilaquiles rojos con carne" /><span class="gallery__caption" data-i18n="dish.new.chilaquiles-rojos">Chilaquiles rojos con carne</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/sandwish-queso.jpg" alt="Sándwich de queso" /><span class="gallery__caption" data-i18n="dish.new.sandwish-queso">Sándwich de queso</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p12.jpg" alt="Pan Francés" /><span class="gallery__caption" data-i18n="dish.p12">Pan Francés</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja.jpg" alt="Jugo de naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja">Jugo de naranja</span></li>
+          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/afogato.jpg" alt="Affogato" /><span class="gallery__caption" data-i18n="dish.new.affogato">Affogato</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-02.jpg" alt="Omelette de Espinacas y Queso" /><span class="gallery__caption" data-i18n="dish.g02">Omelette de Espinacas y Queso</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/hot-cakes.jpg" alt="Hot cakes" /><span class="gallery__caption" data-i18n="dish.new.hot-cakes">Hot cakes</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-11.jpg" alt="Jugo verde" /><span class="gallery__caption" data-i18n="dish.g11">Jugo verde</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/rol-canela.jpg" alt="Rol de canela" /><span class="gallery__caption" data-i18n="dish.new.rol-canela">Rol de canela</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-01.jpg" alt="Avocado Toast" /><span class="gallery__caption" data-i18n="dish.g01">Avocado Toast</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/limonada-cafe.jpg" alt="Limonada café" /><span class="gallery__caption" data-i18n="dish.new.limonada-cafe">Limonada café</span></li>
+          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja-cafe.jpg" alt="Café y Jugo de Naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja-cafe">Café y Jugo de Naranja</span></li>
+          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/golden-milk.jpg" alt="Leche Dorada" /><span class="gallery__caption" data-i18n="dish.new.golden-milk">Leche Dorada</span></li>
+        </ul>
+        <div class="gallery__actions">
+          <button type="button" class="btn btn--coffee gallery__toggle" id="galleryToggle" data-i18n="gallery.more">Ver más fotos</button>
         </div>
-        <figure class="menu-grid__img">
-          <img src="assets/img/menu-ambiente.jpg" alt="Bebida refrescante con la carta MEYRA" />
-        </figure>
       </div>
     </section>
-
     <!-- ═══════════ NOSOTROS ═══════════ -->
     <section id="about" class="section section--cream-100">
       <div class="container">
@@ -337,40 +363,8 @@
         </div>
       </div>
     </section>
-
-    <!-- ═══════════ GALERÍA ═══════════ -->
-    <section id="gallery" class="section section--cream">
-      <div class="container">
-        <header class="section__header center">
-          <p class="eyebrow"><span>·</span><span data-i18n="gallery.eyebrow">Galería</span><span>·</span></p>
-          <h2 class="section__title section__title--xl" data-i18n="gallery.title">Platillos con un toque especial</h2>
-          <p class="section__lead" data-i18n="gallery.subtitle">Recetas tradicionales con un toque contemporáneo.</p>
-        </header>
-
-        <ul class="gallery" id="menuGallery">
-          <li class="gallery__item gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/chilaquiles-rojos.jpg" alt="Chilaquiles rojos con carne" /><span class="gallery__caption" data-i18n="dish.new.chilaquiles-rojos">Chilaquiles rojos con carne</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p02.jpg" alt="Latte de la casa" /><span class="gallery__caption" data-i18n="dish.p02">Latte de la casa</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/sandwish-queso.jpg" alt="Sándwich de queso" /><span class="gallery__caption" data-i18n="dish.new.sandwish-queso">Sándwich de queso</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/p12.jpg" alt="Pan Francés" /><span class="gallery__caption" data-i18n="dish.p12">Pan Francés</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja.jpg" alt="Jugo de naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja">Jugo de naranja</span></li>
-          <li class="gallery__item" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/afogato.jpg" alt="Affogato" /><span class="gallery__caption" data-i18n="dish.new.affogato">Affogato</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-02.jpg" alt="Omelette de Espinacas y Queso" /><span class="gallery__caption" data-i18n="dish.g02">Omelette de Espinacas y Queso</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/hot-cakes.jpg" alt="Hot cakes" /><span class="gallery__caption" data-i18n="dish.new.hot-cakes">Hot cakes</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-11.jpg" alt="Jugo verde" /><span class="gallery__caption" data-i18n="dish.g11">Jugo verde</span></li>
-          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/rol-canela.jpg" alt="Rol de canela" /><span class="gallery__caption" data-i18n="dish.new.rol-canela">Rol de canela</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new-01.jpg" alt="Avocado Toast" /><span class="gallery__caption" data-i18n="dish.g01">Avocado Toast</span></li>
-          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/limonada-cafe.jpg" alt="Limonada café" /><span class="gallery__caption" data-i18n="dish.new.limonada-cafe">Limonada café</span></li>
-          <li class="gallery__item gallery__item--extra" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/jugo-naranja-cafe.jpg" alt="Café y Jugo de Naranja" /><span class="gallery__caption" data-i18n="dish.new.jugo-naranja-cafe">Café y Jugo de Naranja</span></li>
-          <li class="gallery__item gallery__item--extra gallery__item--bottom" data-gallery-item><img loading="lazy" src="assets/img/gallery-new/gallery-new/golden-milk.jpg" alt="Leche Dorada" /><span class="gallery__caption" data-i18n="dish.new.golden-milk">Leche Dorada</span></li>
-        </ul>
-        <div class="gallery__actions">
-          <button type="button" class="btn btn--coffee gallery__toggle" id="galleryToggle" data-i18n="gallery.more">Ver más fotos</button>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══════════ TESTIMONIOS ═══════════ -->
-    <section class="section section--cream-100" id="reviews">
+    <section class="section section--cream" id="reviews">
       <div class="container">
         <header class="reviews__header">
           <div>
@@ -379,10 +373,9 @@
             <p class="section__lead" data-i18n="testimonials.subtitle">Reseñas reales de nuestros comensales en Google.</p>
           </div>
           <div class="reviews__badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             <div>
               <strong>★★★★★</strong>
-              <small>Reseñas verificadas en Google</small>
+              <small>Reseñas en Google</small>
             </div>
           </div>
         </header>
@@ -408,7 +401,7 @@
                       <p class="review-card__name">Nayeli Reyes</p>
                       <p class="review-card__meta">2 reseñas · 2 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -440,7 +433,7 @@
                       <p class="review-card__name">noemi js</p>
                       <p class="review-card__meta"><span class="review-card__local-guide">⚡ Local Guide</span> · 39 reseñas · 72 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -469,7 +462,7 @@
                       <p class="review-card__name">Criztal Galarza</p>
                       <p class="review-card__meta">14 reseñas · 7 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -502,7 +495,7 @@
                       <p class="review-card__name">Manuel Cruz Moreno</p>
                       <p class="review-card__meta">3 reseñas</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -531,7 +524,7 @@
                       <p class="review-card__name">Pilar Andrade</p>
                       <p class="review-card__meta">2 reseñas · 2 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -564,7 +557,7 @@
                       <p class="review-card__name">Rosi Bernal Tolentino</p>
                       <p class="review-card__meta">3 reseñas · 5 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -598,7 +591,7 @@
                       <p class="review-card__name">Stephany So</p>
                       <p class="review-card__meta">2 reseñas · 2 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -630,7 +623,7 @@
                       <p class="review-card__name">JC Sanchez</p>
                       <p class="review-card__meta"><span class="review-card__local-guide">⚡ Local Guide</span> · 31 reseñas · 10 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -665,7 +658,7 @@
                       <p class="review-card__name">Marisol Angulo Romero</p>
                       <p class="review-card__meta">8 reseñas · 5 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -697,7 +690,7 @@
                       <p class="review-card__name">Vianet Camacho</p>
                       <p class="review-card__meta">4 reseñas · 8 fotos</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -730,7 +723,7 @@
                       <p class="review-card__name">Lizbeth Camacho</p>
                       <p class="review-card__meta">5 reseñas · 1 foto</p>
                     </div>
-                    <svg class="review-card__glogo" width="18" height="18" viewBox="0 0 24 24" aria-label="Google" role="img"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    <span class="review-card__gsource">Google</span>
 
                   </div>
                   <div class="review-card__rating">
@@ -772,47 +765,6 @@
         </div><!-- /reviews__carousel -->
       </div>
     </section>
-
-    <!-- ═══════════ REDES SOCIALES ═══════════ -->
-    <section class="section section--cream" id="instagram">
-      <div class="container center">
-        <p class="eyebrow"><span>·</span><span data-i18n="nav.social">Nuestras redes</span><span>·</span></p>
-        <h2 class="section__title" data-i18n="social.title">Síguenos en redes</h2>
-        <p class="section__lead" data-i18n="social.subtitle">Los nuevos platillos, eventos y momentos del día a día.</p>
-
-        <div class="social-cards">
-          <!-- Instagram -->
-          <div class="social-card">
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2.5"/></svg>
-            <h3 class="social-card__handle">@meyra.cafe.restaurante.lpz</h3>
-            <p class="social-card__desc" data-i18n="instagram.subtitle">Los nuevos platillos, eventos y momentos del día a día.</p>
-            <a class="btn btn--coffee" href="https://www.instagram.com/meyra.cafe.restaurante.lpz/" target="_blank" rel="noreferrer">
-              <span data-i18n="instagram.follow">Seguir en Instagram</span>
-            </a>
-          </div>
-
-          <!-- Facebook -->
-          <div class="social-card">
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            <h3 class="social-card__handle" data-i18n="facebook.title">MEYRA Café y Restaurante</h3>
-            <p class="social-card__desc" data-i18n="facebook.subtitle">Fotos, historias y actualizaciones de nuestra cocina.</p>
-            <a class="btn btn--coffee" href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer">
-              <span data-i18n="facebook.follow">Ver en Facebook</span>
-            </a>
-          </div>
-        </div>
-
-        <ul class="ig-grid" aria-label="Vista previa de Instagram">
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new/rol-canela.jpg" alt="Rol de canela" style="object-position:center bottom" /><span class="gallery__caption" data-i18n="ig.rol-canela">Rol de canela</span></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-09.jpg" alt="Omelette de Espinacas y Queso" style="object-position:center bottom" /><span class="gallery__caption" data-i18n="ig.omelette">Omelette de Espinacas y Queso</span></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new/afogato-2.jpg" alt="Affogato" style="object-position:center 60%" /><span class="gallery__caption" data-i18n="ig.affogato">Affogato</span></li>
-          <li><img loading="lazy" src="assets/img/p01.jpg" alt="Jugo de naranja" /><span class="gallery__caption" data-i18n="ig.jugo-naranja">Jugo de naranja</span></li>
-          <li><img loading="lazy" src="assets/img/p13.jpg" alt="Chilaquiles Rojos con Huevo" /><span class="gallery__caption" data-i18n="ig.chilaquiles">Chilaquiles Rojos con Huevo</span></li>
-          <li><img loading="lazy" src="assets/img/gallery-new/gallery-new-08.jpg" alt="Smoothie de Fresa" /><span class="gallery__caption" data-i18n="ig.smoothie">Smoothie de Fresa</span></li>
-        </ul>
-      </div>
-    </section>
-
   </main>
 
   <!-- ═══════════ FOOTER ═══════════ -->
