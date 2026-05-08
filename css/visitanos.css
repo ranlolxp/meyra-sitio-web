@@ -26,10 +26,10 @@
   flex-direction: column;
   gap: 18px;
 }
-#contact .grid-2-1 > div:first-child .eyebrow   { margin-bottom: 0; color: var(--c-cream-50); }
-#contact .grid-2-1 > div:first-child .section__title { margin-bottom: 0; color: var(--c-cream-50); }
-#contact .grid-2-1 > div:first-child .section__lead  { margin-top: -5px; color: var(--c-cream-100); }
-#contact .grid-2-1 > div:first-child .link-underline { margin-top: 8px; color: var(--c-cream-100); }
+#contact .grid-2-1 > div:first-child .eyebrow   { margin-bottom: 0; color: var(--c-coffee-900); }
+#contact .grid-2-1 > div:first-child .section__title { margin-bottom: 0; color: var(--c-coffee-900); }
+#contact .grid-2-1 > div:first-child .section__lead  { margin-top: -5px; color: var(--c-coffee-900); }
+#contact .grid-2-1 > div:first-child .link-underline { margin-top: 8px; color: var(--c-coffee-900); }
 
 .reserve-card {
   background: var(--c-coffee-900);
