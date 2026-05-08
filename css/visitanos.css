@@ -21,27 +21,31 @@
 }
 
 /* Columna izquierda de Visítanos: espaciado uniforme entre todos los elementos */
-#contact .grid-2-1 > div:first-child {
+.contact-grid-fullbleed {
+  width: 100%;
+  max-width: 100%;
+  gap: 0;
+}
+
+.contact-grid-fullbleed > div:first-child {
   display: flex;
   flex-direction: column;
   gap: 18px;
   background: var(--c-cream-300);
-  padding: var(--s-section) clamp(20px, 4vw, 48px);
-  margin-top: calc(var(--s-section) * -1);
-  margin-bottom: calc(var(--s-section) * -1);
-  margin-left: calc(clamp(20px, 4vw, 48px) * -1);
+  padding: var(--s-section) clamp(20px, 6vw, 80px);
+  max-width: 720px;
+  margin-left: auto;
 }
 
-#contact .reserve-card {
+.contact-grid-fullbleed > aside {
   background: #5C3A1E;
-  border-radius: 0;
-  margin-top: calc(var(--s-section) * -1);
-  margin-bottom: calc(var(--s-section) * -1);
-  margin-right: calc(clamp(20px, 4vw, 48px) * -1);
-  padding-top: var(--s-section);
-  padding-bottom: var(--s-section);
-  padding-inline: 36px;
-  align-self: stretch;
+  padding: var(--s-section) clamp(20px, 6vw, 80px);
+}
+
+#contact .grid-2-1 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 #contact .grid-2-1 > div:first-child .eyebrow   { margin-bottom: 0; }
 #contact .grid-2-1 > div:first-child .section__title { margin-bottom: 0; }
