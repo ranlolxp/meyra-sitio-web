@@ -119,9 +119,10 @@
 .hours__line--muted { opacity: 0.6; font-size: 12px; margin-top: 0; }
 
 @media (max-width: 768px) {
-  .reserve-card {
+  #contact .grid-2-1 > div:first-child {
+    background: var(--c-cream-300);
     margin-inline: calc(clamp(20px, 4vw, 48px) * -1);
-    border-radius: 0;
-    padding-inline: clamp(20px, 4vw, 48px);
+    padding: var(--s-section) clamp(20px, 4vw, 48px);
+    margin-bottom: calc(var(--s-section) * -1);
   }
 }
