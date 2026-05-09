@@ -87,11 +87,11 @@ a:focus-visible, button:focus-visible {
 .section--sage      { background: var(--c-sage); }
 .section--coffee    { background: var(--c-coffee-900); color: var(--c-cream-50); }
 .section--contact-split {
-  background: linear-gradient(to right, var(--c-cream-300) calc(56.52% - 28px), #5C3A1E calc(56.52% + 28px));
+  background: var(--c-cream-200);
 }
 @media (max-width: 768px) {
   .section--contact-split {
-    background: linear-gradient(to bottom, #5C3A1E 50%, var(--c-cream-300) 50%);
+    background: linear-gradient(to bottom, #5C3A1E 58%, var(--c-cream-200) 58%);
   }
 }
 
