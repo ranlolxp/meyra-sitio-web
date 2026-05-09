@@ -120,7 +120,7 @@
 
 @media (max-width: 1024px) {
   #contact .grid-2-1 > div:first-child {
-    background: var(--c-cream-300);
+    background: #e8ddc8;
     width: 100vw;
     margin-left: calc(clamp(20px, 4vw, 48px) * -1);
     padding: var(--s-section) clamp(20px, 4vw, 48px);
