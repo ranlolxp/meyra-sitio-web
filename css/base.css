@@ -89,7 +89,7 @@ a:focus-visible, button:focus-visible {
 .section--contact-split {
   background: var(--c-cream-300);
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section--contact-split {
     background: #5C3A1E;
   }
