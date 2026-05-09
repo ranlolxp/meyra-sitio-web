@@ -92,6 +92,7 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 1024px) {
   .section--contact-split {
     background: #5C3A1E;
+    padding-bottom: 0;
   }
 }
 
