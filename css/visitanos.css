@@ -117,3 +117,11 @@
 .reserve-card__hours .hours__label { margin-bottom: 0; }
 .hours__line { font-size: 13px; }
 .hours__line--muted { opacity: 0.6; font-size: 12px; margin-top: 0; }
+
+@media (max-width: 768px) {
+  .reserve-card {
+    margin-inline: calc(clamp(20px, 4vw, 48px) * -1);
+    border-radius: 0;
+    padding-inline: clamp(20px, 4vw, 48px);
+  }
+}
