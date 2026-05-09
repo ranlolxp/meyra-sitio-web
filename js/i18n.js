@@ -17,7 +17,7 @@ var CONTACT = {
 // Traducciones (claves usadas en data-i18n)
 var I18N = {
   es: {
-    'nav.home': 'Inicio', 'nav.visit': 'Visítanos', 'nav.menu': 'Menú', 'nav.about': 'Nosotros', 'nav.gallery': 'Galería', 'nav.reviews': 'Reseñas', 'nav.social': 'Nuestras redes', 'nav.contact': 'Contacto',
+    'nav.home': 'Inicio', 'nav.visit': 'Reserva', 'nav.menu': 'Menú', 'nav.about': 'Nosotros', 'nav.gallery': 'Galería', 'nav.reviews': 'Reseñas', 'nav.social': 'Nuestras redes', 'nav.contact': 'Contacto',
     'hero.welcome': 'Bienvenidos a',
     'hero.tagline': 'Café y Restaurante',
     'hero.intro': 'En el corazón de La Paz, un espacio cálido donde los aromas del café recién molido y la comida casera se mezclan con el encanto de una cabaña rústica.',
@@ -110,7 +110,7 @@ var I18N = {
     'footer.inLaPaz': 'en La Paz',
   },
   en: {
-    'nav.home': 'Home', 'nav.visit': 'Visit us', 'nav.menu': 'Menu', 'nav.about': 'About', 'nav.gallery': 'Gallery', 'nav.reviews': 'Reviews', 'nav.social': 'Our socials', 'nav.contact': 'Contact',
+    'nav.home': 'Home', 'nav.visit': 'Reserve', 'nav.menu': 'Menu', 'nav.about': 'About', 'nav.gallery': 'Gallery', 'nav.reviews': 'Reviews', 'nav.social': 'Our socials', 'nav.contact': 'Contact',
     'hero.welcome': 'Welcome to',
     'hero.tagline': 'Café & Restaurant',
     'hero.intro': 'In the heart of La Paz, a warm space where the aromas of freshly ground coffee and home-cooked food blend with the charm of a rustic cabin.',
