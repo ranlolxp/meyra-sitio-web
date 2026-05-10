@@ -112,29 +112,44 @@ function setupCarousel() {
   }
 
   function navigateModal(direction) {
-    var nextIdx = (modalIndex + direction + total) % total;
-    var outX    = direction > 0 ? '-30px' : '30px';
-    var inX     = direction > 0 ?  '30px' : '-30px';
+    var nextIdx  = (modalIndex + direction + total) % total;
+    var outX     = direction > 0 ? '-100%' : '100%';
+    var inX      = direction > 0 ?  '100%' : '-100%';
+    var DURATION = 280;
+    var ease     = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
-    /* Salida */
-    modalContent.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
-    modalContent.style.opacity    = '0';
-    modalContent.style.transform  = 'translateX(' + outX + ')';
+    var incoming    = cloneCard(nextIdx);
+    var currentCard = modalContent.firstChild;
+    var lockedH     = modalContent.offsetHeight;
+
+    /* Bloquear contenedor para que el modal no salte de alto */
+    modalContent.style.cssText =
+      'position:relative;overflow:hidden;height:' + lockedH + 'px;';
+
+    /* Card saliente: absoluto en su posición actual */
+    currentCard.style.cssText =
+      'position:absolute;top:0;left:0;width:100%;' +
+      'transition:transform ' + DURATION + 'ms ' + ease + ';';
+
+    /* Card entrante: absoluto, fuera de pantalla */
+    incoming.style.cssText =
+      'position:absolute;top:0;left:0;width:100%;' +
+      'transform:translateX(' + inX + ');' +
+      'transition:transform ' + DURATION + 'ms ' + ease + ';';
+
+    modalContent.appendChild(incoming);
+    void incoming.offsetWidth; /* fuerza reflow */
+
+    /* Arrancar desliz simultáneo */
+    currentCard.style.transform = 'translateX(' + outX + ')';
+    incoming.style.transform    = 'translateX(0)';
 
     setTimeout(function() {
       modalIndex = nextIdx;
-      modalContent.innerHTML = '';
-      modalContent.appendChild(cloneCard(nextIdx));
-
-      /* Entrada desde el lado opuesto */
-      modalContent.style.transition = 'none';
-      modalContent.style.transform  = 'translateX(' + inX + ')';
-      modalContent.style.opacity    = '0';
-      void modalContent.offsetWidth; /* fuerza reflow */
-      modalContent.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-      modalContent.style.opacity    = '1';
-      modalContent.style.transform  = 'translateX(0)';
-    }, 160);
+      modalContent.style.cssText = '';
+      modalContent.innerHTML     = '';
+      modalContent.appendChild(cloneCard(nextIdx)); /* clone fresco sin estilos inline */
+    }, DURATION + 20);
   }
 
   function openModal(index) {
