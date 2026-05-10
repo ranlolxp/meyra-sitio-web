@@ -66,50 +66,203 @@ function setupGallery() {
     syncToggleLabel();
   }
 
+  /* ── Modal con swipe 3-slot ── */
+  var galleryImages = items.map(function(item) {
+    var imgEl      = item.querySelector('img');
+    var captionEl  = item.querySelector('.gallery__caption');
+    return {
+      imgEl:       imgEl,
+      captionText: captionEl ? captionEl.textContent.trim() : (imgEl ? imgEl.alt : '')
+    };
+  });
+
+  var N          = galleryImages.length;
+  var currentIdx = 0;
+  var currSlot   = 1;
+  var isOpen     = false;
+  var isDragging = false;
+  var touchStartX = 0;
+  var touchStartY = 0;
+  var hintTimer  = null;
+  var TRANSITION = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)';
+  var THRESHOLD  = 0.28;
+
+  /* Construir overlay */
   var overlay = document.createElement('div');
   overlay.className = 'gallery-modal-overlay';
-  overlay.innerHTML =
-    '<div class="gallery-modal" role="dialog" aria-modal="true" aria-label="Vista de imagen">' +
-      '<button type="button" class="gallery-modal__close" aria-label="Cerrar">&times;</button>' +
-      '<img class="gallery-modal__image" alt="" />' +
-      '<p class="gallery-modal__caption"></p>' +
-    '</div>';
+
+  var card = document.createElement('div');
+  card.className = 'gallery-modal';
+  card.setAttribute('role', 'dialog');
+  card.setAttribute('aria-modal', 'true');
+  card.setAttribute('aria-label', 'Vista de imagen');
+
+  var closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'gallery-modal__close';
+  closeBtn.setAttribute('aria-label', 'Cerrar');
+  closeBtn.innerHTML = '&times;';
+
+  /* 3 slots */
+  var slotEls = [0, 1, 2].map(function() {
+    var div = document.createElement('div');
+    div.className = 'gallery-modal__slide';
+    var img = document.createElement('img');
+    img.className = 'gallery-modal__image';
+    img.alt = '';
+    div.appendChild(img);
+    return div;
+  });
+
+  var slider = document.createElement('div');
+  slider.className = 'gallery-modal__slider';
+  slotEls.forEach(function(s) { slider.appendChild(s); });
+
+  var hint = document.createElement('div');
+  hint.className = 'gallery-modal__hint';
+  hint.innerHTML = '&#8592;&ensp;Deslizar&ensp;&#8594;';
+  slider.appendChild(hint);
+
+  var footer = document.createElement('div');
+  footer.className = 'gallery-modal__footer';
+
+  var captionEl = document.createElement('p');
+  captionEl.className = 'gallery-modal__caption';
+
+  var counter = document.createElement('span');
+  counter.className = 'gallery-modal__counter';
+
+  footer.appendChild(captionEl);
+  footer.appendChild(counter);
+
+  card.appendChild(closeBtn);
+  card.appendChild(slider);
+  card.appendChild(footer);
+  overlay.appendChild(card);
   document.body.appendChild(overlay);
 
-  var image = overlay.querySelector('.gallery-modal__image');
-  var caption = overlay.querySelector('.gallery-modal__caption');
-  var closeBtn = overlay.querySelector('.gallery-modal__close');
+  /* slot(d): div que está d posiciones del centro */
+  function slot(d) { return slotEls[(currSlot + d + 3) % 3]; }
+
+  function updateCounter() {
+    counter.textContent = (currentIdx + 1) + ' / ' + N;
+  }
+
+  function updateCaption() {
+    captionEl.textContent = galleryImages[currentIdx].captionText;
+  }
+
+  function loadImages(idx) {
+    var prev = (idx - 1 + N) % N;
+    var next = (idx + 1) % N;
+    [
+      { entry: galleryImages[prev], sl: slot(-1) },
+      { entry: galleryImages[idx],  sl: slot(0)  },
+      { entry: galleryImages[next], sl: slot(1)  }
+    ].forEach(function(item) {
+      var srcImg  = item.entry.imgEl;
+      var destImg = item.sl.querySelector('img');
+      destImg.src = srcImg ? (srcImg.currentSrc || srcImg.src) : '';
+      destImg.alt = srcImg ? srcImg.alt : '';
+    });
+  }
+
+  function resetPositions() {
+    slotEls.forEach(function(el) { el.style.transition = 'none'; });
+    for (var d = -1; d <= 1; d++) {
+      slot(d).style.transform = 'translateX(' + (d * 100) + '%)';
+    }
+  }
+
+  function navigateTo(dir) {
+    slot(0).style.transition   = TRANSITION;
+    slot(dir).style.transition = TRANSITION;
+    slot(0).style.transform    = 'translateX(' + (-dir * 100) + '%)';
+    slot(dir).style.transform  = 'translateX(0)';
+    currSlot   = (currSlot + dir + 3) % 3;
+    currentIdx = (currentIdx + dir + N) % N;
+    updateCounter();
+    updateCaption();
+    setTimeout(function() {
+      loadImages(currentIdx);
+      resetPositions();
+    }, 420);
+  }
+
+  function snapBack() {
+    slotEls.forEach(function(el) { el.style.transition = TRANSITION; });
+    for (var d = -1; d <= 1; d++) {
+      slot(d).style.transform = 'translateX(' + (d * 100) + '%)';
+    }
+  }
+
+  function openModal(idx) {
+    currentIdx = idx;
+    currSlot   = 1;
+    loadImages(currentIdx);
+    resetPositions();
+    updateCounter();
+    updateCaption();
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    isOpen = true;
+    hint.classList.add('is-visible');
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(function() { hint.classList.remove('is-visible'); }, 2500);
+  }
 
   function closeModal() {
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
-    setTimeout(function() {
-      image.removeAttribute('src');
-      image.alt = '';
-      caption.textContent = '';
-    }, 180);
+    isOpen = false;
   }
 
-  function openModal(item) {
-    var img = item.querySelector('img');
-    var text = item.querySelector('.gallery__caption');
-    if (!img) return;
-    image.src = img.getAttribute('src') || '';
-    image.alt = img.alt || '';
-    caption.textContent = text ? text.textContent.trim() : img.alt || '';
-    overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  items.forEach(function(item) {
-    item.addEventListener('click', function() { openModal(item); });
+  items.forEach(function(item, i) {
+    item.addEventListener('click', function() { openModal(i); });
   });
 
   closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(event) {
-    if (event.target === overlay) closeModal();
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
   });
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  document.addEventListener('keydown', function(e) {
+    if (!isOpen) return;
+    if (e.key === 'Escape')     closeModal();
+    if (e.key === 'ArrowRight') navigateTo(1);
+    if (e.key === 'ArrowLeft')  navigateTo(-1);
   });
+
+  /* ── Touch / Swipe ── */
+  slider.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isDragging  = false;
+    slotEls.forEach(function(el) { el.style.transition = 'none'; });
+  }, { passive: true });
+
+  slider.addEventListener('touchmove', function(e) {
+    var dx = e.touches[0].clientX - touchStartX;
+    var dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (!isDragging) {
+      if (Math.abs(dx) > dy && Math.abs(dx) > 8) isDragging = true;
+      else if (dy > 12) return;
+    }
+    if (!isDragging) return;
+    e.preventDefault();
+    for (var d = -1; d <= 1; d++) {
+      slot(d).style.transform = 'translateX(calc(' + (d * 100) + '% + ' + dx + 'px))';
+    }
+  }, { passive: false });
+
+  slider.addEventListener('touchend', function(e) {
+    if (!isDragging) return;
+    isDragging  = false;
+    var dx      = e.changedTouches[0].clientX - touchStartX;
+    var threshold = slider.offsetWidth * THRESHOLD;
+    if (Math.abs(dx) > threshold) {
+      navigateTo(dx < 0 ? 1 : -1);
+    } else {
+      snapBack();
+    }
+  }, { passive: true });
 }
