@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setupBurger();
   setupCarousel();
   setupGallery();
+  setupPatioReveal();
   setupHeroStatus();
 });
 

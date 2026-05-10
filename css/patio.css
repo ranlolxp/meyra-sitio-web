@@ -1,0 +1,89 @@
+/* ============================================================
+   MEYRA — Sección Patio: grid collage + scroll reveal
+   ============================================================ */
+
+#patio .section__header { margin-bottom: 36px; }
+
+.patio__title {
+  font-size: clamp(28px, 4vw, 48px);
+  margin-bottom: 14px;
+}
+
+.patio__intro {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ─── Grid ─── */
+.patio-grid {
+  display: grid;
+  grid-template-columns: 58% 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 580px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.patio-grid__main {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  margin: 0;
+}
+
+.patio-grid__small {
+  margin: 0;
+}
+
+/* figure y picture deben llenar su celda del grid */
+.patio-grid figure,
+.patio-grid figure picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Especificidad mayor que base.css (img { height: auto }) */
+.patio-grid figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.patio-grid figure:hover img {
+  transform: scale(1.06);
+}
+
+/* ─── Scroll reveal ─── */
+.patio-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease var(--delay, 0s),
+              transform 0.7s ease var(--delay, 0s);
+}
+
+.patio-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Tablet ─── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .patio-grid { height: 420px; }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 767px) {
+  .patio-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 150px 150px;
+    height: auto;
+  }
+
+  .patio-grid__main {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+}

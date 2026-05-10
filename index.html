@@ -64,6 +64,7 @@
   <link rel="stylesheet" href="css/resenas.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css?v=3" />
+  <link rel="stylesheet" href="css/patio.css" />
   <link rel="preload" as="image" href="assets/img/fachada-exterior-recortada.webp" type="image/webp" />
 
   <!-- Schema.org structured data — para que Google entienda que es un restaurante -->
@@ -309,6 +310,49 @@
         </ul>
         <div class="gallery__actions">
           <button type="button" class="btn btn--coffee gallery__toggle" id="galleryToggle" data-i18n="gallery.more">Ver más fotos</button>
+        </div>
+      </div>
+    </section>
+    <!-- ═══════════ PATIO ═══════════ -->
+    <section id="patio" class="section section--cream-200">
+      <div class="container">
+        <header class="section__header center">
+          <p class="eyebrow"><span>·</span>Nuestro jardín<span>·</span></p>
+          <h2 class="section__title patio__title">El jardín que no esperabas encontrar</h2>
+          <p class="section__intro patio__intro">Verde, soleado y lleno de vida — el rincón que hace especial a MEYRA.</p>
+        </header>
+
+        <div class="patio-grid">
+          <figure class="patio-grid__main patio-reveal">
+            <picture>
+              <source type="image/webp" srcset="assets/img/patio/patio-1.webp">
+              <img src="assets/img/patio/patio-1.jpg" alt="Patio y jardín de MEYRA Café en La Paz" loading="lazy" />
+            </picture>
+          </figure>
+          <figure class="patio-grid__small patio-reveal" style="--delay:0.1s">
+            <picture>
+              <source type="image/webp" srcset="assets/img/patio/patio-2.webp">
+              <img src="assets/img/patio/patio-2.jpg" alt="Terraza cubierta del patio de MEYRA" loading="lazy" />
+            </picture>
+          </figure>
+          <figure class="patio-grid__small patio-reveal" style="--delay:0.15s">
+            <picture>
+              <source type="image/webp" srcset="assets/img/patio/patio-3.webp">
+              <img src="assets/img/patio/patio-3.jpg" alt="Jardín verde de MEYRA" loading="lazy" />
+            </picture>
+          </figure>
+          <figure class="patio-grid__small patio-reveal" style="--delay:0.2s">
+            <picture>
+              <source type="image/webp" srcset="assets/img/patio/patio-4.webp">
+              <img src="assets/img/patio/patio-4.jpg" alt="Vista del patio exterior de MEYRA" loading="lazy" />
+            </picture>
+          </figure>
+          <figure class="patio-grid__small patio-reveal" style="--delay:0.25s">
+            <picture>
+              <source type="image/webp" srcset="assets/img/patio/patio-5.webp">
+              <img src="assets/img/patio/patio-5.jpg" alt="Jardín exterior de MEYRA" loading="lazy" />
+            </picture>
+          </figure>
         </div>
       </div>
     </section>
@@ -847,6 +891,7 @@
   <script src="js/carousel.js" defer></script>
   <script src="js/gallery.js" defer></script>
   <script src="js/hero.js" defer></script>
+  <script src="js/patio.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
