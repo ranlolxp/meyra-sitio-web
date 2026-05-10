@@ -290,6 +290,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
+  z-index: 10;
   width: 32px;
   height: 32px;
   border: none;
@@ -307,9 +308,9 @@
 }
 .review-modal__close:hover { background: #e8eaed; }
 
-/* Empuja el logo de Google a la izquierda del botón de cierre */
-.review-modal__content .review-card__header {
-  padding-right: 48px;
+/* Oculta el texto "Google" en el modal — redundante y se solapa con la X */
+.review-modal__content .review-card__gsource {
+  display: none;
 }
 
 /* Tarjeta dentro del modal: sin sombra, sin padding propio */

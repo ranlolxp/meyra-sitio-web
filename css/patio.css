@@ -43,6 +43,11 @@
   height: 100%;
 }
 
+/* Contiene el zoom del hover dentro del marco sin desbordarse */
+.patio-grid figure {
+  overflow: hidden;
+}
+
 /* Especificidad mayor que base.css (img { height: auto }) */
 .patio-grid figure img {
   width: 100%;
