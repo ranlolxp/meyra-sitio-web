@@ -23,9 +23,35 @@ Idioma de trabajo: español. **Explica cada cambio antes de hacerlo. Pasos corto
 ## Seguridad
 - CSP (meta tag + `_headers` Hostinger), iframe Maps con sandbox, `rel="noreferrer"` en externos, localStorage con lista blanca.
 
-## Modo de trabajo con prompts externos
-- Si el prompt llega detallado con archivos y líneas específicas (estilo ChatGPT), ejecutarlo directo sin re-explorar el repo, salvo que el cambio tenga repercusiones no obvias o no quede claro qué se va a modificar.
-- Si la instrucción es casual o ambigua, comportarse como siempre.
+## Modo de trabajo
+El flujo principal es: **Claude analiza y redacta prompts detallados → Codex ejecuta los cambios → Claude verifica con greps.**
+Claude no modifica código directamente salvo para verificaciones puntuales o fixes de una línea.
+
+## Estándar obligatorio para prompts dirigidos a Codex
+Todo prompt que Claude genere para Codex debe incluir obligatoriamente estas secciones:
+
+**1. Auditoría previa (Codex debe hacer esto ANTES de tocar cualquier archivo):**
+- Listar todos los `<section>` dentro de `<main>` con sus `id` y clases.
+- Listar todos los `<a>` dentro del `<nav>`.
+- Anotar el número total de secciones. Esta cifra debe coincidir exactamente al terminar.
+
+**2. Cambios específicos (solo lo que se pide):**
+- Cada cambio debe indicar archivo, línea aproximada o selector exacto, valor anterior y valor nuevo.
+- Prohibido modificar cualquier propiedad, clase, atributo o contenido que no esté listado explícitamente.
+- Prohibido reorganizar, limpiar, reformatear o "mejorar" código que no sea parte del cambio pedido.
+
+**3. Auditoría posterior (Codex debe hacer esto DESPUÉS de cada cambio):**
+- Confirmar que el número de `<section>` en `<main>` es idéntico al de antes.
+- Confirmar que ningún elemento fuera del alcance del cambio fue modificado.
+- Si algo no coincide: revertir y reportar antes de considerar la tarea completa.
+
+**4. Restricciones absolutas en cada prompt:**
+- No eliminar, mover ni comentar ningún bloque HTML que no se haya pedido explícitamente.
+- No añadir clases, atributos o estilos fuera de los especificados.
+- No reformatear el archivo (indentación, saltos de línea, comillas).
+- No "interpretar" la intención — si algo no está claro, preguntar antes de actuar.
+- Cambios en `index.html`: solo el archivo indicado, nunca tocar CSS o JS por iniciativa propia.
+- Cambios en CSS: solo el archivo de esa sección, nunca tocar `base.css` salvo que se pida.
 
 ## Estructura y eficiencia
 
