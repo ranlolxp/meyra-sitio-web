@@ -117,38 +117,40 @@ function setupCarousel() {
     var inX      = direction > 0 ?  '100%' : '-100%';
     var DURATION = 280;
     var ease     = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    var lockedH  = modalContent.offsetHeight;
 
-    var incoming    = cloneCard(nextIdx);
-    var currentCard = modalContent.firstChild;
-    var lockedH     = modalContent.offsetHeight;
-
-    /* Bloquear contenedor para que el modal no salte de alto */
-    modalContent.style.cssText =
-      'position:relative;overflow:hidden;height:' + lockedH + 'px;';
-
-    /* Card saliente: absoluto en su posición actual */
-    currentCard.style.cssText =
+    /* Wrappers neutros para animar — el .review-card tiene transform:none !important en CSS
+       por lo que animamos divs wrapper en su lugar */
+    var outWrapper = document.createElement('div');
+    outWrapper.style.cssText =
       'position:absolute;top:0;left:0;width:100%;' +
       'transition:transform ' + DURATION + 'ms ' + ease + ';';
+    outWrapper.appendChild(modalContent.firstChild); /* mueve el card actual */
 
-    /* Card entrante: absoluto, fuera de pantalla */
-    incoming.style.cssText =
+    var inWrapper = document.createElement('div');
+    inWrapper.style.cssText =
       'position:absolute;top:0;left:0;width:100%;' +
       'transform:translateX(' + inX + ');' +
       'transition:transform ' + DURATION + 'ms ' + ease + ';';
+    inWrapper.appendChild(cloneCard(nextIdx));
 
-    modalContent.appendChild(incoming);
-    void incoming.offsetWidth; /* fuerza reflow */
+    /* Bloquear alto del contenedor */
+    modalContent.style.cssText =
+      'position:relative;overflow:hidden;height:' + lockedH + 'px;';
 
-    /* Arrancar desliz simultáneo */
-    currentCard.style.transform = 'translateX(' + outX + ')';
-    incoming.style.transform    = 'translateX(0)';
+    modalContent.appendChild(outWrapper);
+    modalContent.appendChild(inWrapper);
+    void inWrapper.offsetWidth; /* fuerza reflow */
+
+    /* Desliz simultáneo en los wrappers */
+    outWrapper.style.transform = 'translateX(' + outX + ')';
+    inWrapper.style.transform  = 'translateX(0)';
 
     setTimeout(function() {
       modalIndex = nextIdx;
       modalContent.style.cssText = '';
       modalContent.innerHTML     = '';
-      modalContent.appendChild(cloneCard(nextIdx)); /* clone fresco sin estilos inline */
+      modalContent.appendChild(cloneCard(nextIdx));
     }, DURATION + 20);
   }
 

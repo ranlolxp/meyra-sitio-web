@@ -228,3 +228,34 @@
   opacity: 1;
   visibility: visible;
 }
+
+/* Flechas de navegación — solo en desktop (pointer: fine) */
+.patio-modal__nav {
+  display: none;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background 0.18s, border-color 0.18s;
+  padding: 0;
+  z-index: 10001;
+}
+.patio-modal__nav--prev { left: 20px; }
+.patio-modal__nav--next { right: 20px; }
+.patio-modal__nav:hover {
+  background: rgba(255, 255, 255, 0.30);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+@media (pointer: fine) {
+  .patio-modal__nav  { display: flex; }
+  .patio-modal__hint { display: none !important; }
+}

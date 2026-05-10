@@ -128,10 +128,24 @@ function setupGallery() {
   hint.className = 'gallery-modal__hint';
   hint.innerHTML = '&#8592;&ensp;Deslizar&ensp;&#8594;';
 
+  var prevNavBtn = document.createElement('button');
+  prevNavBtn.type = 'button';
+  prevNavBtn.className = 'gallery-modal__nav gallery-modal__nav--prev';
+  prevNavBtn.setAttribute('aria-label', 'Anterior');
+  prevNavBtn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
+
+  var nextNavBtn = document.createElement('button');
+  nextNavBtn.type = 'button';
+  nextNavBtn.className = 'gallery-modal__nav gallery-modal__nav--next';
+  nextNavBtn.setAttribute('aria-label', 'Siguiente');
+  nextNavBtn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+
   overlay.appendChild(slider);
   overlay.appendChild(closeBtn);
   overlay.appendChild(counter);
   overlay.appendChild(hint);
+  overlay.appendChild(prevNavBtn);
+  overlay.appendChild(nextNavBtn);
   document.body.appendChild(overlay);
 
   function slot(d) { return slotEls[(currSlot + d + 3) % 3]; }
@@ -215,7 +229,8 @@ function setupGallery() {
     if (!e.target.closest('.gallery-modal__card') &&
         !e.target.closest('.gallery-modal__close') &&
         !e.target.closest('.gallery-modal__counter') &&
-        !e.target.closest('.gallery-modal__hint')) {
+        !e.target.closest('.gallery-modal__hint') &&
+        !e.target.closest('.gallery-modal__nav')) {
       closeModal();
     }
   });
@@ -225,6 +240,8 @@ function setupGallery() {
     if (e.key === 'ArrowRight') navigateTo(1);
     if (e.key === 'ArrowLeft')  navigateTo(-1);
   });
+  prevNavBtn.addEventListener('click', function(e) { e.stopPropagation(); navigateTo(-1); });
+  nextNavBtn.addEventListener('click', function(e) { e.stopPropagation(); navigateTo(1); });
 
   /* ── Touch / Swipe ── */
   slider.addEventListener('touchstart', function(e) {

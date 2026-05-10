@@ -307,6 +307,11 @@
 }
 .review-modal__close:hover { background: #e8eaed; }
 
+/* Empuja el logo de Google a la izquierda del botón de cierre */
+.review-modal__content .review-card__header {
+  padding-right: 48px;
+}
+
 /* Tarjeta dentro del modal: sin sombra, sin padding propio */
 .review-modal__content .review-card {
   box-shadow: none;

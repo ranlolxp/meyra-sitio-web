@@ -20,7 +20,7 @@
   background: var(--c-cream-100);
   color: var(--c-coffee-700);
 }
-.social-card:first-child { background: #F2E1D2; }
+.social-card:first-child { background: #F5DCC4; }
 .social-card:last-child  { background: #D3E3EB; }
 .social-card svg { color: var(--c-coffee-600); }
 .social-card__handle {
