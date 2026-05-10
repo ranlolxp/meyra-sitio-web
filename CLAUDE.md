@@ -95,6 +95,9 @@ Antes de ejecutar cualquier tarea que mueva, reordene o modifique bloques de `in
 3. Si falta alguna, restaurarla antes de marcar la tarea como completa.
 **Nunca eliminar contenido que no se haya pedido explícitamente.**
 
+## Conversión de imágenes a WebP
+`cd sitio && npm install sharp && node convert-webp.js` — el script lee JPGs de `assets/img/` y genera `.webp` al lado. Si `node_modules/`, `package.json` y `package-lock.json` quedan en `sitio/`, borrarlos tras la conversión (no pertenecen al sitio).
+
 ## Reglas importantes
 - No romper diseño visual al hacer cambios de código.
 - No agregar features que no se pidan.
