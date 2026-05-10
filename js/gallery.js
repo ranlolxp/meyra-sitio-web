@@ -68,34 +68,52 @@ function setupGallery() {
 
   /* ── Modal con swipe 3-slot ── */
   var galleryImages = items.map(function(item) {
-    var imgEl      = item.querySelector('img');
-    var captionEl  = item.querySelector('.gallery__caption');
+    var imgEl     = item.querySelector('img');
+    var captionEl = item.querySelector('.gallery__caption');
     return {
       imgEl:       imgEl,
       captionText: captionEl ? captionEl.textContent.trim() : (imgEl ? imgEl.alt : '')
     };
   });
 
-  var N          = galleryImages.length;
-  var currentIdx = 0;
-  var currSlot   = 1;
-  var isOpen     = false;
-  var isDragging = false;
+  var N           = galleryImages.length;
+  var currentIdx  = 0;
+  var currSlot    = 1;
+  var isOpen      = false;
+  var isDragging  = false;
   var touchStartX = 0;
   var touchStartY = 0;
-  var hintTimer  = null;
-  var TRANSITION = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)';
-  var THRESHOLD  = 0.28;
+  var hintTimer   = null;
+  var TRANSITION  = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)';
+  var THRESHOLD   = 0.28;
 
-  /* Construir overlay */
+  /* Overlay full-screen (sin marco fijo — cada tarjeta usa sus propias dimensiones) */
   var overlay = document.createElement('div');
   overlay.className = 'gallery-modal-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Vista de imagen');
 
-  var card = document.createElement('div');
-  card.className = 'gallery-modal';
-  card.setAttribute('role', 'dialog');
-  card.setAttribute('aria-modal', 'true');
-  card.setAttribute('aria-label', 'Vista de imagen');
+  /* 3 slots — cada uno contiene su propia tarjeta blanca */
+  var slotEls = [0, 1, 2].map(function() {
+    var slide = document.createElement('div');
+    slide.className = 'gallery-modal__slide';
+    var card = document.createElement('div');
+    card.className = 'gallery-modal__card';
+    var img = document.createElement('img');
+    img.className = 'gallery-modal__image';
+    img.alt = '';
+    var cap = document.createElement('p');
+    cap.className = 'gallery-modal__caption';
+    card.appendChild(img);
+    card.appendChild(cap);
+    slide.appendChild(card);
+    return slide;
+  });
+
+  var slider = document.createElement('div');
+  slider.className = 'gallery-modal__slider';
+  slotEls.forEach(function(s) { slider.appendChild(s); });
 
   var closeBtn = document.createElement('button');
   closeBtn.type = 'button';
@@ -103,55 +121,26 @@ function setupGallery() {
   closeBtn.setAttribute('aria-label', 'Cerrar');
   closeBtn.innerHTML = '&times;';
 
-  /* 3 slots */
-  var slotEls = [0, 1, 2].map(function() {
-    var div = document.createElement('div');
-    div.className = 'gallery-modal__slide';
-    var img = document.createElement('img');
-    img.className = 'gallery-modal__image';
-    img.alt = '';
-    div.appendChild(img);
-    return div;
-  });
-
-  var slider = document.createElement('div');
-  slider.className = 'gallery-modal__slider';
-  slotEls.forEach(function(s) { slider.appendChild(s); });
+  var counter = document.createElement('div');
+  counter.className = 'gallery-modal__counter';
 
   var hint = document.createElement('div');
   hint.className = 'gallery-modal__hint';
   hint.innerHTML = '&#8592;&ensp;Deslizar&ensp;&#8594;';
-  slider.appendChild(hint);
 
-  var footer = document.createElement('div');
-  footer.className = 'gallery-modal__footer';
-
-  var captionEl = document.createElement('p');
-  captionEl.className = 'gallery-modal__caption';
-
-  var counter = document.createElement('span');
-  counter.className = 'gallery-modal__counter';
-
-  footer.appendChild(captionEl);
-  footer.appendChild(counter);
-
-  card.appendChild(closeBtn);
-  card.appendChild(slider);
-  card.appendChild(footer);
-  overlay.appendChild(card);
+  overlay.appendChild(slider);
+  overlay.appendChild(closeBtn);
+  overlay.appendChild(counter);
+  overlay.appendChild(hint);
   document.body.appendChild(overlay);
 
-  /* slot(d): div que está d posiciones del centro */
   function slot(d) { return slotEls[(currSlot + d + 3) % 3]; }
 
   function updateCounter() {
     counter.textContent = (currentIdx + 1) + ' / ' + N;
   }
 
-  function updateCaption() {
-    captionEl.textContent = galleryImages[currentIdx].captionText;
-  }
-
+  /* Carga imagen Y caption en cada slot — la tarjeta se dimensiona sola */
   function loadImages(idx) {
     var prev = (idx - 1 + N) % N;
     var next = (idx + 1) % N;
@@ -161,9 +150,11 @@ function setupGallery() {
       { entry: galleryImages[next], sl: slot(1)  }
     ].forEach(function(item) {
       var srcImg  = item.entry.imgEl;
-      var destImg = item.sl.querySelector('img');
+      var destImg = item.sl.querySelector('.gallery-modal__image');
+      var destCap = item.sl.querySelector('.gallery-modal__caption');
       destImg.src = srcImg ? (srcImg.currentSrc || srcImg.src) : '';
       destImg.alt = srcImg ? srcImg.alt : '';
+      destCap.textContent = item.entry.captionText;
     });
   }
 
@@ -182,7 +173,6 @@ function setupGallery() {
     currSlot   = (currSlot + dir + 3) % 3;
     currentIdx = (currentIdx + dir + N) % N;
     updateCounter();
-    updateCaption();
     setTimeout(function() {
       loadImages(currentIdx);
       resetPositions();
@@ -202,7 +192,6 @@ function setupGallery() {
     loadImages(currentIdx);
     resetPositions();
     updateCounter();
-    updateCaption();
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     isOpen = true;
@@ -223,7 +212,12 @@ function setupGallery() {
 
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) closeModal();
+    if (!e.target.closest('.gallery-modal__card') &&
+        !e.target.closest('.gallery-modal__close') &&
+        !e.target.closest('.gallery-modal__counter') &&
+        !e.target.closest('.gallery-modal__hint')) {
+      closeModal();
+    }
   });
   document.addEventListener('keydown', function(e) {
     if (!isOpen) return;

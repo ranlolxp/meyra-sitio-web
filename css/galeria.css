@@ -56,12 +56,10 @@
 .gallery-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(26, 15, 7, 0.72);
+  background: rgba(26, 15, 7, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 9100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 22px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, visibility 0.25s ease;
@@ -70,94 +68,108 @@
   opacity: 1;
   visibility: visible;
 }
-.gallery-modal {
-  position: relative;
-  width: min(760px, 100%);
-  max-height: 88vh;
-  background: var(--c-cream-50);
-  border-radius: 12px;
-  padding: 22px 22px 18px;
-  box-shadow: 0 24px 70px rgba(26,15,7,0.28);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.gallery-modal__close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: rgba(26,15,7,0.08);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 1;
-  flex-shrink: 0;
-}
+
+/* Slider cubre todo el overlay */
 .gallery-modal__slider {
-  position: relative;
-  flex: 1;
-  min-height: 180px;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  border-radius: 8px;
-  background: var(--c-cream-100);
 }
+
+/* Cada slot cubre todo el slider y centra su tarjeta */
 .gallery-modal__slide {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 68px 22px 22px; /* top deja espacio para el botón de cierre */
 }
+
+/* Tarjeta blanca — se dimensiona sola según la imagen */
+.gallery-modal__card {
+  background: var(--c-cream-50);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 28px 80px rgba(26, 15, 7, 0.38),
+              0 0 0 1px rgba(26, 15, 7, 0.06);
+  max-width: min(760px, 100%);
+}
+
 .gallery-modal__image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
   display: block;
+  max-width: 100%;
+  max-height: calc(88vh - 200px); /* reserva espacio para padding de slide + card + caption */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--c-cream-100);
   user-select: none;
   -webkit-user-drag: none;
 }
-/* Footer: caption + counter en la misma fila */
-.gallery-modal__footer {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 14px;
-  flex-shrink: 0;
-}
+
 .gallery-modal__caption {
+  margin-top: 14px;
   font-family: var(--f-serif);
   font-size: 22px;
   line-height: 1.2;
   color: var(--c-coffee-900);
-  flex: 1;
+  text-align: center;
 }
-.gallery-modal__counter {
-  font-size: 13px;
-  color: var(--c-coffee-400, #a08060);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-/* Swipe hint — dentro del slider */
-.gallery-modal__hint {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(26, 15, 7, 0.55);
+
+/* Botón de cierre (fijo, fuera de la tarjeta) */
+.gallery-modal__close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: #fff;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  padding: 6px 16px;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.gallery-modal__close:hover {
+  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Contador "N / Total" (fijo, esquina superior izquierda) */
+.gallery-modal__counter {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  z-index: 1;
+}
+
+/* Swipe hint (fijo, abajo centrado) */
+.gallery-modal__hint {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 7px 18px;
   border-radius: 999px;
   white-space: nowrap;
   pointer-events: none;
