@@ -84,6 +84,7 @@ a:focus-visible, button:focus-visible {
 }
 .section--cream     { background: var(--c-cream-50); }
 .section--cream-100 { background: var(--c-cream-100); }
+.section--cream-200 { background: var(--c-cream-200); }
 .section--sage      { background: var(--c-sage); }
 .section--coffee    { background: var(--c-coffee-900); color: var(--c-cream-50); }
 .section--contact-split {
