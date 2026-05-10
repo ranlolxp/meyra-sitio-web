@@ -340,6 +340,50 @@
 }
 .review-modal__content .photos-more-badge { display: none; }
 
+/* Shell: wrapper flex que contiene flechas + modal */
+.review-modal-shell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 660px;
+  box-sizing: border-box;
+  pointer-events: none; /* los clicks en el gap caen al overlay y lo cierran */
+}
+.review-modal-shell .review-modal {
+  flex: 1;
+  min-width: 0;
+  pointer-events: auto;
+}
+
+/* Flechas de navegación del modal */
+.review-modal__nav {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background 0.18s, border-color 0.18s;
+  padding: 0;
+  pointer-events: auto;
+}
+.review-modal__nav:hover {
+  background: rgba(255, 255, 255, 0.30);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+/* En móvil las flechas se ocultan — se navega con swipe */
+@media (max-width: 600px) {
+  .review-modal__nav { display: none; }
+}
+
 /* Dots de navegación */
 .reviews__dots {
   display: flex;

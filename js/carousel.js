@@ -16,6 +16,8 @@ function setupCarousel() {
   var timer     = null;
   var dots      = [];
   var modalOpen = false;
+  var modalIndex    = 0;
+  var MODAL_THRESHOLD = 0.20;
 
   function getStepPx() {
     return slides[0].offsetWidth + 20; /* ancho real + gap CSS */
@@ -70,22 +72,31 @@ function setupCarousel() {
     wrap.appendChild(badge);
   });
 
-  /* Modal */
+  /* ── Modal ── */
   var overlay = document.createElement('div');
   overlay.className = 'review-modal-overlay';
   overlay.innerHTML =
-    '<div class="review-modal" role="dialog" aria-modal="true">' +
-      '<button class="review-modal__close" aria-label="Cerrar">&times;</button>' +
-      '<div class="review-modal__content"></div>' +
+    '<div class="review-modal-shell">' +
+      '<button class="review-modal__nav review-modal__nav--prev" aria-label="Anterior">' +
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>' +
+      '</button>' +
+      '<div class="review-modal" role="dialog" aria-modal="true">' +
+        '<button class="review-modal__close" aria-label="Cerrar">&times;</button>' +
+        '<div class="review-modal__content"></div>' +
+      '</div>' +
+      '<button class="review-modal__nav review-modal__nav--next" aria-label="Siguiente">' +
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>' +
+      '</button>' +
     '</div>';
   document.body.appendChild(overlay);
 
   var modalContent = overlay.querySelector('.review-modal__content');
   var closeBtn     = overlay.querySelector('.review-modal__close');
+  var prevModalBtn = overlay.querySelector('.review-modal__nav--prev');
+  var nextModalBtn = overlay.querySelector('.review-modal__nav--next');
 
-  function openModal(card) {
-    stopTimer();
-    modalOpen = true;
+  function cloneCard(index) {
+    var card  = slides[index].querySelector('.review-card');
     var clone = card.cloneNode(true);
     clone.querySelectorAll('.review-card__photos img').forEach(function(img) {
       img.style.display = '';
@@ -97,8 +108,45 @@ function setupCarousel() {
       w.parentNode.insertBefore(img, w);
       w.remove();
     });
+    return clone;
+  }
+
+  function navigateModal(direction) {
+    var nextIdx = (modalIndex + direction + total) % total;
+    var outX    = direction > 0 ? '-30px' : '30px';
+    var inX     = direction > 0 ?  '30px' : '-30px';
+
+    /* Salida */
+    modalContent.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+    modalContent.style.opacity    = '0';
+    modalContent.style.transform  = 'translateX(' + outX + ')';
+
+    setTimeout(function() {
+      modalIndex = nextIdx;
+      modalContent.innerHTML = '';
+      modalContent.appendChild(cloneCard(nextIdx));
+
+      /* Entrada desde el lado opuesto */
+      modalContent.style.transition = 'none';
+      modalContent.style.transform  = 'translateX(' + inX + ')';
+      modalContent.style.opacity    = '0';
+      void modalContent.offsetWidth; /* fuerza reflow */
+      modalContent.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      modalContent.style.opacity    = '1';
+      modalContent.style.transform  = 'translateX(0)';
+    }, 160);
+  }
+
+  function openModal(index) {
+    stopTimer();
+    modalOpen  = true;
+    modalIndex = index;
+    /* Resetea estilos de animaciones anteriores */
+    modalContent.style.opacity    = '1';
+    modalContent.style.transform  = 'translateX(0)';
+    modalContent.style.transition = '';
     modalContent.innerHTML = '';
-    modalContent.appendChild(clone);
+    modalContent.appendChild(cloneCard(index));
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
@@ -110,25 +158,62 @@ function setupCarousel() {
     setTimeout(function() { modalContent.innerHTML = ''; startTimer(); }, 260);
   }
 
+  /* Controles del modal */
   closeBtn.addEventListener('click', closeModal);
+  prevModalBtn.addEventListener('click', function(e) { e.stopPropagation(); navigateModal(-1); });
+  nextModalBtn.addEventListener('click', function(e) { e.stopPropagation(); navigateModal(1); });
   overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modalOpen) closeModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (!modalOpen) return;
+    if (e.key === 'Escape')     closeModal();
+    if (e.key === 'ArrowLeft')  navigateModal(-1);
+    if (e.key === 'ArrowRight') navigateModal(1);
+  });
 
-  /* Flechas prev / next */
+  /* ── Swipe táctil en el modal ── */
+  var mTouchStartX = 0;
+  var mTouchStartY = 0;
+  var mIsDragging  = false;
+
+  overlay.addEventListener('touchstart', function(e) {
+    mTouchStartX = e.touches[0].clientX;
+    mTouchStartY = e.touches[0].clientY;
+    mIsDragging  = false;
+  }, { passive: true });
+
+  overlay.addEventListener('touchmove', function(e) {
+    var dx = Math.abs(e.touches[0].clientX - mTouchStartX);
+    var dy = Math.abs(e.touches[0].clientY - mTouchStartY);
+    if (!mIsDragging) {
+      if (dx > dy && dx > 8) mIsDragging = true;
+      else if (dy > 12)      return;
+    }
+    if (mIsDragging) e.preventDefault();
+  }, { passive: false });
+
+  overlay.addEventListener('touchend', function(e) {
+    if (!mIsDragging) return;
+    mIsDragging   = false;
+    var dx        = e.changedTouches[0].clientX - mTouchStartX;
+    var threshold = overlay.offsetWidth * MODAL_THRESHOLD;
+    if (Math.abs(dx) > threshold) navigateModal(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  /* Flechas prev / next del carrusel */
   var prevBtn = document.getElementById('reviewsPrev');
   var nextBtn = document.getElementById('reviewsNext');
   if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1 < 0 ? total - perView : current - 1); startTimer(); });
   if (nextBtn) nextBtn.addEventListener('click', function() { next(); startTimer(); });
 
-  /* Hover pausa / mouseleave reanuda */
-  slides.forEach(function(slide) {
+  /* Hover pausa / mouseleave reanuda — click abre modal */
+  slides.forEach(function(slide, i) {
     slide.addEventListener('mouseenter', function() { if (!modalOpen) stopTimer(); });
     slide.addEventListener('mouseleave', function() { if (!modalOpen) startTimer(); });
     var card = slide.querySelector('.review-card');
-    if (card) card.addEventListener('click', function() { openModal(card); });
+    if (card) card.addEventListener('click', function() { openModal(i); });
   });
 
-  /* Swipe táctil — compatible con Safari iOS */
+  /* Swipe táctil en el carrusel — compatible con Safari iOS */
   var touchStartX = 0;
   var touchStartY = 0;
   var swipeTarget = track.parentElement || track;
@@ -143,7 +228,7 @@ function setupCarousel() {
   }, { passive: false });
   swipeTarget.addEventListener('touchend', function(e) {
     var diff = touchStartX - e.changedTouches[0].clientX;
-    var dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    var dy   = Math.abs(e.changedTouches[0].clientY - touchStartY);
     if (Math.abs(diff) > 40 && Math.abs(diff) > dy) {
       if (diff > 0) { next(); } else { goTo(current - 1 < 0 ? total - perView : current - 1); }
       startTimer();
