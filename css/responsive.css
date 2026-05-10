@@ -245,7 +245,7 @@
   /* Bloque 1: texto primero, imagen protagonista después */
   .about-block:first-of-type .about-block__text {
     order: 1;
-    gap: 10px;
+    gap: 16px;
   }
 
   .about-block:first-of-type .about-block__media {
@@ -280,7 +280,7 @@
     order: 1;
     width: 100%;
     padding-top: 0;
-    gap: 10px;
+    gap: 16px;
     display: flex;
     flex-direction: column;
   }
@@ -304,7 +304,7 @@
   }
 
   .about-block__text {
-    gap: 10px;
+    gap: 16px;
   }
 
   .about-block__text .kicker {
@@ -328,7 +328,7 @@
   }
 
   .pillars li {
-    padding: 9px 0;
+    padding: 13px 0;
   }
 
   .pillars li strong {
