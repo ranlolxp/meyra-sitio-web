@@ -64,6 +64,7 @@
   <link rel="stylesheet" href="css/resenas.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css?v=3" />
+  <link rel="preload" as="image" href="assets/img/fachada-exterior-recortada.jpg" />
 
   <!-- Schema.org structured data — para que Google entienda que es un restaurante -->
   <script type="application/ld+json">
@@ -105,7 +106,7 @@
   <!-- ═══════════ MODAL DE BIENVENIDA / IDIOMA ═══════════ -->
   <div class="lang-modal" id="langModal" role="dialog" aria-modal="true" aria-labelledby="langModalTitle" hidden>
     <div class="lang-modal__card">
-      <img src="assets/logos/logo-meyra.png" alt="MEYRA" class="lang-modal__logo" />
+      <img src="assets/logos/logo-meyra.png" alt="MEYRA" class="lang-modal__logo" loading="lazy" />
       <p class="lang-modal__eyebrow">Welcome · Bienvenido</p>
       <h2 id="langModalTitle" class="lang-modal__title">
         Choose your language
@@ -186,7 +187,7 @@
       </div>
 
       <div class="hero__media">
-        <img src="assets/img/fachada-exterior-recortada.jpg" alt="Fachada de MEYRA Café y Restaurante en La Paz" class="hero__image" />
+        <img src="assets/img/fachada-exterior-recortada.jpg" alt="Fachada de MEYRA Café y Restaurante en La Paz" class="hero__image" fetchpriority="high" />
       </div>
 
       <!-- Franja inferior: solo horario -->
@@ -217,7 +218,7 @@
           <p class="hint" data-i18n="menu.hint">Se abrirá el menú en español</p>
         </div>
         <figure class="menu-grid__img">
-          <img src="assets/img/menu-ambiente.jpg" alt="Bebida refrescante con la carta MEYRA" />
+          <img src="assets/img/menu-ambiente.jpg" alt="Bebida refrescante con la carta MEYRA" loading="lazy" />
         </figure>
       </div>
     </section>
@@ -318,19 +319,19 @@
           <p class="eyebrow"><span>·</span><span data-i18n="about.eyebrow">Nosotros</span><span>·</span></p>
           <h2 class="section__title section__title--xl" data-i18n="about.title">Nuestra esencia</h2>
           <div class="about-ornament about-ornament--top">
-            <img src="assets/img/pez-izq.png" alt="" aria-hidden="true">
+            <img src="assets/img/pez-izq.png" alt="" aria-hidden="true" loading="lazy">
           </div>
           <p class="section__intro" data-i18n="about.intro">
             MEYRA es mucho más que un café. Es un espacio acogedor donde cada visita se vuelve una pausa para reconectar con lo esencial: el gusto por lo casero, lo saludable y lo auténtico.
           </p>
           <div class="about-ornament about-ornament--bottom">
-            <img src="assets/img/pez-der.png" alt="" aria-hidden="true">
+            <img src="assets/img/pez-der.png" alt="" aria-hidden="true" loading="lazy">
           </div>
         </header>
 
         <div class="about-block">
           <figure class="about-block__media">
-            <img src="assets/img/mesa-mural-interior.jpg" alt="Interior cálido de MEYRA con mural" />
+            <img src="assets/img/mesa-mural-interior.jpg" alt="Interior cálido de MEYRA con mural" loading="lazy" />
             <figcaption class="about-block__quote" data-i18n="about.quote">
               "Una rica comida se disfruta más con agradable compañía."
             </figcaption>
@@ -355,7 +356,7 @@
             </p>
           </div>
           <figure class="about-block__media">
-            <img src="assets/img/tortillas-ingredientes.jpg" alt="Tortillas e ingredientes naturales" />
+            <img src="assets/img/tortillas-ingredientes.jpg" alt="Tortillas e ingredientes naturales" loading="lazy" />
           </figure>
           <blockquote class="about-block__closing" data-i18n="about.closing">
             MEYRA será ese lugar al que siempre quieras volver.
