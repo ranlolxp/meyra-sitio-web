@@ -20,8 +20,8 @@
   background: var(--c-cream-100);
   color: var(--c-coffee-700);
 }
-.social-card:first-child { background: #EDD5DC; }
-.social-card:last-child  { background: #CAD9E4; }
+.social-card:first-child { background: #EDE2E5; }
+.social-card:last-child  { background: #DCE8EE; }
 .social-card svg { color: var(--c-coffee-600); }
 .social-card__handle {
   font-family: var(--f-serif);
