@@ -98,6 +98,9 @@ Antes de ejecutar cualquier tarea que mueva, reordene o modifique bloques de `in
 ## Conversión de imágenes a WebP
 `cd sitio && npm install sharp && node convert-webp.js` — el script lee JPGs de `assets/img/` y genera `.webp` al lado. Si `node_modules/`, `package.json` y `package-lock.json` quedan en `sitio/`, borrarlos tras la conversión (no pertenecen al sitio).
 
+## Git — push tras cada acción importante
+Tras corregir un bug, añadir una feature o cualquier cambio relevante: `git add -p` (solo archivos del cambio) → `git commit -m "…"` → `git push`. No acumular varios cambios sin pushear.
+
 ## Reglas importantes
 - No romper diseño visual al hacer cambios de código.
 - No agregar features que no se pidan.

@@ -10,8 +10,20 @@
   margin-bottom: 40px;
 }
 .about-block:last-child { margin-bottom: 0; }
-.about-block--reverse { /* segunda fila */ }
+.about-block--reverse {
+  grid-template-areas:
+    "text    media"
+    "closing media";
+  row-gap: 20px;
+}
 .about-block--reverse .about-block__text { padding-top: 64px; }
+.about-block--reverse > .about-block__text  { grid-area: text; }
+.about-block--reverse > .about-block__media { grid-area: media; }
+.about-block--reverse > .about-block__media img { height: 100%; }
+.about-block--reverse .about-block__closing {
+  grid-area: closing;
+  grid-column: 1 / 2;
+}
 .about-block__media { margin: 0; position: relative; }
 .about-block__media img {
   width: 100%;

@@ -232,7 +232,7 @@
 
   #about .section__intro {
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.65;
   }
 
   .about-block {
@@ -245,7 +245,7 @@
   /* Bloque 1: texto primero, imagen protagonista después */
   .about-block:first-of-type .about-block__text {
     order: 1;
-    gap: 16px;
+    gap: 20px;
   }
 
   .about-block:first-of-type .about-block__media {
@@ -280,7 +280,7 @@
     order: 1;
     width: 100%;
     padding-top: 0;
-    gap: 16px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
   }
@@ -304,7 +304,7 @@
   }
 
   .about-block__text {
-    gap: 16px;
+    gap: 20px;
   }
 
   .about-block__text .kicker {
@@ -314,12 +314,12 @@
 
   .about-block__lead {
     font-size: 21px;
-    line-height: 1.18;
+    line-height: 1.28;
   }
 
   .about-block__text p {
     font-size: 15px;
-    line-height: 1.52;
+    line-height: 1.62;
   }
 
   .pillars {
