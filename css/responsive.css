@@ -223,7 +223,7 @@
 /* Celulares: composición editorial en Nosotros */
 @media (max-width: 600px) {
   #about .section__header {
-    margin-bottom: 8px;
+    margin-bottom: 20px;
   }
 
   #about .section__title {
