@@ -14,7 +14,7 @@ function setupHeroStatus() {
   if (!statusEl) return;
 
   var openTime  = 7.5;   // 7:30
-  var closeTime = 14.5;  // 14:30
+  var closeTime = 14.0;  // 14:00
 
   var DAY_NAMES = { Sunday: 0, Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6 };
 
