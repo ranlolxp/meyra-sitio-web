@@ -10,8 +10,8 @@ var CONTACT = {
   instagram: 'meyra.cafe.restaurante.lpz',
   instagramUrl: 'https://www.instagram.com/meyra.cafe.restaurante.lpz/',
   mapsUrl: 'https://www.google.com/maps/search/MEYRA+Caf%C3%A9+y+Restaurante/@24.1475197,-110.3343323,17z',
-  menuPdfEs: 'assets/menu/menu-meyra-es.pdf',
-  menuPdfEn: 'assets/menu/menu-meyra-en.pdf',
+  menuPdfEs: 'assets/menu/menu-meyra-es.pdf?v=20260626',
+  menuPdfEn: 'assets/menu/menu-meyra-en.pdf?v=20260626',
 };
 
 // Traducciones (claves usadas en data-i18n)
