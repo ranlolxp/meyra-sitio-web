@@ -14,6 +14,10 @@ var CONTACT = {
   menuPdfEn: 'assets/menu/menu-meyra-en.pdf?v=20260626',
 };
 
+var SHAMRAM_CONTACT = {
+  whatsapp: '526121478433',
+};
+
 // Traducciones (claves usadas en data-i18n)
 var I18N = {
   es: {
@@ -113,6 +117,11 @@ var I18N = {
     'footer.rights': '© 2026 MEYRA · Todos los derechos reservados',
     'footer.madeWith': 'Hecho con',
     'footer.inLaPaz': 'en La Paz',
+    'shamram.title': '¿Quieres una página como esta?',
+    'shamram.createdBy': 'Sitio web creado por ShamRam',
+    'shamram.subtitle': 'Sitios prácticos para tu negocio',
+    'shamram.button': 'Cotizar por WhatsApp',
+    'shamram.aria': 'Sitio web creado por ShamRam',
   },
   en: {
     'nav.home': 'Home', 'nav.visit': 'Reserve', 'nav.menu': 'Menu', 'nav.about': 'About', 'nav.gallery': 'Gallery', 'nav.reviews': 'Reviews', 'nav.social': 'Our socials', 'nav.contact': 'Contact',
@@ -211,12 +220,22 @@ var I18N = {
     'footer.rights': '© 2026 MEYRA · All rights reserved',
     'footer.madeWith': 'Made with',
     'footer.inLaPaz': 'in La Paz',
+    'shamram.title': 'Want a website like this?',
+    'shamram.createdBy': 'Website created by ShamRam',
+    'shamram.subtitle': 'Practical websites for your business',
+    'shamram.button': 'Request a WhatsApp quote',
+    'shamram.aria': 'Website created by ShamRam',
   },
 };
 
 var WHATSAPP_MSG = {
   es: 'Hola MEYRA, me gustaría reservar una mesa.',
   en: "Hi MEYRA, I'd like to reserve a table.",
+};
+
+var SHAMRAM_WHATSAPP_MSG = {
+  es: 'Hola ShamRam, me gustaría cotizar una página web para mi negocio.',
+  en: "Hi ShamRam, I'd like to request a website quote for my business.",
 };
 
 // Helpers de almacenamiento (con fallback si localStorage no existe)
@@ -245,9 +264,18 @@ function applyLang(lang) {
     if (val !== undefined) el.textContent = val;
   });
 
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-aria-label');
+    var val = I18N[lang][key];
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
+
   var waUrl = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(WHATSAPP_MSG[lang]);
   document.querySelectorAll('[data-href-lang="wa"]').forEach(function(el) { el.setAttribute('href', waUrl); });
   document.querySelectorAll('[data-href-lang="reserveWa"]').forEach(function(el) { el.setAttribute('href', waUrl); });
+
+  var shamramWaUrl = 'https://wa.me/' + SHAMRAM_CONTACT.whatsapp + '?text=' + encodeURIComponent(SHAMRAM_WHATSAPP_MSG[lang]);
+  document.querySelectorAll('[data-href-lang="shamramWa"]').forEach(function(el) { el.setAttribute('href', shamramWaUrl); });
 
   var menuLink = document.getElementById('menuLink');
   if (menuLink) menuLink.setAttribute('href', lang === 'es' ? CONTACT.menuPdfEs : CONTACT.menuPdfEn);

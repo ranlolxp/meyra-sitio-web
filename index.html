@@ -27,9 +27,11 @@
   <meta name="twitter:image" content="https://meyra.mx/assets/img/fachada-exterior.jpg" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
-  <link rel="icon" type="image/png" href="assets/logos/logo-meyra-texto-corazon.png" />
-  <link rel="apple-touch-icon" href="assets/logos/logo-meyra-texto-corazon.png" />
+  <link rel="icon" href="assets/logos/favicon.ico?v=20260707" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logos/favicon-16x16.png?v=20260707" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logos/favicon-32x32.png?v=20260707" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logos/apple-touch-icon.png?v=20260707" />
+  <link rel="manifest" href="site.webmanifest?v=20260707" />
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
@@ -62,8 +64,8 @@
   <link rel="stylesheet" href="css/nosotros.css" />
   <link rel="stylesheet" href="css/galeria.css" />
   <link rel="stylesheet" href="css/resenas.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/responsive.css?v=3" />
+  <link rel="stylesheet" href="css/footer.css?v=20260707n" />
+  <link rel="stylesheet" href="css/responsive.css?v=20260707b" />
   <link rel="stylesheet" href="css/patio.css" />
   <link rel="preload" as="image" href="assets/img/fachada-exterior-recortada.webp" type="image/webp" />
 
@@ -859,43 +861,65 @@
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="site-footer" role="contentinfo">
-    <div class="container site-footer__grid">
-      <div>
-        <p class="site-footer__brand">MEYRA</p>
-        <p class="site-footer__tag" data-i18n="footer.tag">Café y Restaurante · La Paz, BCS</p>
+    <div class="container site-footer__layout">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand">MEYRA</p>
+          <p class="site-footer__tag" data-i18n="footer.tag">Café y Restaurante · La Paz, BCS</p>
+        </div>
+        <div>
+          <p class="site-footer__h" data-i18n="nav.contact">Contacto</p>
+          <a href="tel:+526128684404">+52 612 868 4404</a>
+          <p data-i18n="footer.address">La Paz, Baja California Sur</p>
+          <a href="https://www.instagram.com/meyra.cafe.restaurante.lpz/" target="_blank" rel="noreferrer">@meyra.cafe.restaurante.lpz</a>
+          <a href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer">MEYRA Café y Restaurante</a>
+        </div>
+        <div>
+          <p class="site-footer__h" data-i18n="hours.title">Horarios</p>
+          <p data-i18n="hours.weekdays">Lunes a Sábado</p>
+          <p data-i18n="hours.time">7:30 AM – 2:00 PM</p>
+          <p class="muted" data-i18n="hours.sunday">Domingo · Cerrado</p>
+        </div>
+        <div>
+          <p class="site-footer__h" data-i18n="nav.menu">Menú</p>
+          <a href="assets/menu/menu-meyra-es.pdf?v=20260626" target="_blank" rel="noreferrer">Menú · Español (PDF)</a>
+          <a href="assets/menu/menu-meyra-en.pdf?v=20260626" target="_blank" rel="noreferrer">Menu · English (PDF)</a>
+        </div>
       </div>
-      <div>
-        <p class="site-footer__h" data-i18n="nav.contact">Contacto</p>
-        <a href="tel:+526128684404">+52 612 868 4404</a>
-        <p data-i18n="footer.address">La Paz, Baja California Sur</p>
-        <a href="https://www.instagram.com/meyra.cafe.restaurante.lpz/" target="_blank" rel="noreferrer">@meyra.cafe.restaurante.lpz</a>
-        <a href="https://www.facebook.com/meyracafeyrestaurantelpz" target="_blank" rel="noreferrer">MEYRA Café y Restaurante</a>
+
+      <section class="site-footer__promo shamram-signature" data-shamram-signature tabindex="0" aria-label="Sitio web creado por ShamRam" data-i18n-aria-label="shamram.aria">
+        <p class="shamram-signature__title" data-i18n="shamram.title">¿Quieres una página como esta?</p>
+        <p class="shamram-signature__line" data-i18n="shamram.createdBy">Sitio web creado por ShamRam</p>
+        <p class="shamram-signature__line" data-i18n="shamram.subtitle">Sitios prácticos para tu negocio</p>
+        <div class="shamram-signature__hover-zone" data-shamram-hover-zone>
+          <div class="shamram-signature__logo" aria-label="ShamRam">
+            <span class="shamram-signature__logo-mask" aria-hidden="true"></span>
+            <img class="shamram-signature__logo-color" src="assets/logos/shamram-color-footer-aligned.png?v=20260707b" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+          </div>
+          <a class="shamram-signature__button"
+             href="https://wa.me/526121478433?text=Hola%20ShamRam%2C%20me%20gustar%C3%ADa%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio."
+             target="_blank"
+             rel="noopener noreferrer"
+             data-href-lang="shamramWa"
+             data-shamram-quote
+             data-i18n="shamram.button">Cotizar por WhatsApp</a>
+        </div>
+      </section>
+
+      <div class="site-footer__legal">
+        <span data-i18n="footer.rights">© 2026 MEYRA · Todos los derechos reservados</span>
+        <span><span data-i18n="footer.madeWith">Hecho con</span> <span class="heart">♥</span> <span data-i18n="footer.inLaPaz">en La Paz</span></span>
       </div>
-      <div>
-        <p class="site-footer__h" data-i18n="hours.title">Horarios</p>
-        <p data-i18n="hours.weekdays">Lunes a Sábado</p>
-        <p data-i18n="hours.time">7:30 AM – 2:00 PM</p>
-        <p class="muted" data-i18n="hours.sunday">Domingo · Cerrado</p>
-      </div>
-      <div>
-        <p class="site-footer__h" data-i18n="nav.menu">Menú</p>
-        <a href="assets/menu/menu-meyra-es.pdf?v=20260626" target="_blank" rel="noreferrer">Menú · Español (PDF)</a>
-        <a href="assets/menu/menu-meyra-en.pdf?v=20260626" target="_blank" rel="noreferrer">Menu · English (PDF)</a>
-      </div>
-    </div>
-    <div class="container site-footer__legal">
-      <span data-i18n="footer.rights">© 2026 MEYRA · Todos los derechos reservados</span>
-      <span><span data-i18n="footer.madeWith">Hecho con</span> <span class="heart">♥</span> <span data-i18n="footer.inLaPaz">en La Paz</span></span>
     </div>
   </footer>
 
   <!-- Scripts del sitio (un archivo por funcionalidad, main.js siempre al último) -->
-  <script src="js/i18n.js?v=20260626" defer></script>
+  <script src="js/i18n.js?v=20260707b" defer></script>
   <script src="js/nav.js" defer></script>
   <script src="js/carousel.js" defer></script>
   <script src="js/gallery.js" defer></script>
   <script src="js/hero.js?v=20260626" defer></script>
   <script src="js/patio.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=20260707f" defer></script>
 </body>
 </html>

@@ -69,7 +69,19 @@
   .gallery.is-expanded .gallery__item--extra.is-fading { opacity: 0; }
   .social-cards        { grid-template-columns: 1fr; gap: 20px; }
   .ig-grid             { grid-template-columns: repeat(4, 1fr); }
+  .site-footer__layout { display: flex; flex-direction: column; align-items: stretch; }
   .site-footer__grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .site-footer__legal  { order: 2; margin-top: 8px; width: 100%; }
+  .site-footer__promo  {
+    order: 3;
+    max-width: none;
+    margin: 0;
+    padding: 28px 0 0;
+    border-top: 1px solid rgba(245,236,216,0.14);
+    border-left: 0;
+  }
+  .shamram-signature__hover-zone { padding-top: 18px; }
+  .shamram-signature__logo { width: min(260px, 82vw); }
   .site-nav__menu      { gap: 18px; }
   .hero__intro         { max-width: 86%; }
   .hero__cta-row .btn  { padding: 13px 24px; font-size: 14px; }
@@ -218,6 +230,13 @@
   /* Footer */
   .site-footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .site-footer__legal { flex-direction: column; align-items: center; text-align: center; }
+  .shamram-signature__title { font-size: 24px; }
+  .shamram-signature__line { font-size: 14px; }
+  .shamram-signature__button {
+    min-width: min(100%, 230px);
+    padding: 10px 22px 11px;
+    font-size: 14px;
+  }
 }
 
 /* Celulares: composición editorial en Nosotros */
